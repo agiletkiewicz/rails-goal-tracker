@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  task_id: 1
+  description: MyString
+  key_result: 
+  completed_date: 2020-08-11 23:28:43
+  complete: false
+  by_when: 2020-08-11 23:28:43
+  nickanme: MyString
+
+two:
+  user_id: 1
+  task_id: 1
+  description: MyString
+  key_result: 
+  completed_date: 2020-08-11 23:28:43
+  complete: false
+  by_when: 2020-08-11 23:28:43
+  nickanme: MyString
