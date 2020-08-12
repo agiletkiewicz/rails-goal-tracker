@@ -1,0 +1,12 @@
+<%= form_for([@user, @goal]) do |f| %>
+
+    <%= f.text_field :description %>
+    <%= f.text_field :key_result %>
+    <%= f.text_field :nickname %>
+    <%= f.date_field :by_when %>
+    <%= f.collection_select :category_id, Category.all, :id, :name %>
+
+
+    <%= f.submit %>
+
+<% end %>

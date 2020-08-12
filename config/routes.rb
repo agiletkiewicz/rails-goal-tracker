@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+  resources :categories
   resources :notes
   resources :tasks
   resources :goals
-  resources :users
+  
+  resources :users do 
+    resources :goals 
+  end
 
   root 'static#home'
   get '/logout' => 'sessions#destroy'
