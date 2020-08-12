@@ -2,8 +2,11 @@ Rails.application.routes.draw do
   resources :categories
   resources :notes
   resources :tasks
-  resources :goals
-  
+
+  resources :goals do 
+    resources :tasks
+  end
+
   resources :users do 
     resources :goals 
   end

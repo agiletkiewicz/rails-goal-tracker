@@ -18,6 +18,11 @@ class GoalsController < ApplicationController
         @goals = Goal.all
     end
 
+    def show 
+        @goal = Goal.find_by(id: params[:id])
+        @task= Task.new
+    end
+
     private 
 
     def goal_params 

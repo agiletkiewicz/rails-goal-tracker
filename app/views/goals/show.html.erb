@@ -1,1 +1,17 @@
-goal show
+
+<%= @goal.description %>
+<%= @goal.key_result %>
+<%= @goal.by_when %>
+
+<%= form_for([@goal, @task]) do |f| %>
+    <%= f.text_field :description %>
+    <%= f.date_field :by_when %>
+
+    <%= f.submit %>
+
+<% end %>
+
+<% @goal.tasks.each do |task| %>
+    <%= task.description %>
+<% end %>
+

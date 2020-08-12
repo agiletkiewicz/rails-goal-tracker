@@ -1,5 +1,5 @@
 
 
 <% @goals.each do |goal| %>
-    <%= goal.description %> <br>
+    <%= link_to goal.description, goal_path(goal) %> <br>
 <% end %>
