@@ -9,6 +9,16 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+    <a href="/">Home</a>
+    <% if !session[:user_id] %>
+      <a href="/signin">Sign In</a> 
+      <a href="/users/new">Sign Up</a> 
+    <% else %>
+      <a href="/logout">Logout</a>
+    <% end %>
+    <br><br>
+
+
   <body>
     <%= yield %>
   </body>
