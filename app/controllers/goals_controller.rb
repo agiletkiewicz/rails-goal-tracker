@@ -1,5 +1,11 @@
 class GoalsController < ApplicationController
 
+    before_action :require_login
+
+    def index
+        @goals = Goal.where(user_id: params[:user_id])
+    end
+
     def new 
         @user = User.find_by(id: session[:user_id])
         @goal = Goal.new
@@ -14,13 +20,13 @@ class GoalsController < ApplicationController
         redirect_to user_goals_path
     end
 
-    def index 
-        @goals = Goal.all
-    end
-
     def show 
         @goal = Goal.find_by(id: params[:id])
-        @task= Task.new
+        if @goal.user_id == current_user.id
+            @task= Task.new
+        else
+            redirect_to '/'
+        end
     end
 
     def edit 
@@ -41,4 +47,14 @@ class GoalsController < ApplicationController
     def goal_params 
         params.require(:goal).permit(:description, :key_result, :by_when, :nickname, :category_id, :user_id)
     end
+
+    def require_login
+        return head(:forbidden) unless logged_in?
+    end
+
+    def correct_user?
+        @goal = Goal.find_by(id: params[:id])
+        return head(:forbidden) unless @goal.user_id == current_user.id
+    end
+
 end
