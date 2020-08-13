@@ -1,7 +1,9 @@
 <%= form_for @user, url: signin_path, method: :post do |f| %>
 
-    <%= f.text_field :username %>
-    <%= f.password_field :password %>
+    <label>Username:</label><br>
+    <%= f.text_field :username %><br>
+    <label>Password::</label><br>
+    <%= f.password_field :password %><br>
 
     <%= f.submit "Sign In" %>
 

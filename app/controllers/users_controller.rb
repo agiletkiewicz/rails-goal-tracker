@@ -17,10 +17,13 @@ class UsersController < ApplicationController
     end
 
     def show 
-        @user = current_user
-        @goals = current_user.goals
+        if logged_in?
+            @goals = current_user.goals
 
-        redirect_to '/' unless params[:id].to_i == current_user.id
+            # redirect_to '/' unless params[:id].to_i == current_user.id
+        else
+            redirect_to '/welcome'
+        end
     end
 
 

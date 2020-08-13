@@ -12,7 +12,8 @@ Rails.application.routes.draw do
     resources :goals, only: [:edit, :create, :update]
   end
 
-  root 'static#home'
+  root 'users#show'
+  get '/welcome' => 'static#home'
   get '/logout' => 'sessions#destroy'
   get '/signin' => 'sessions#new'
   post '/signin' => 'sessions#create'
