@@ -18,6 +18,8 @@ class UsersController < ApplicationController
 
     def show 
         @user = User.find_by(id: params[:id])
+
+        redirect_to '/' unless params[:id].to_i == current_user.id
     end
 
 
