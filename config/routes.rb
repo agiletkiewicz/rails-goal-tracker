@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
+  
   resources :categories
   resources :notes
   resources :tasks
 
   resources :goals do 
-    resources :tasks
+    resources :tasks,only: [:new, :edit, :create, :update]
   end
 
   resources :users do 
-    resources :goals 
+    resources :goals, only: [:new, :edit, :create, :update]
   end
 
   root 'static#home'

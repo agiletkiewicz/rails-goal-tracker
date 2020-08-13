@@ -21,6 +21,10 @@ class TasksController < ApplicationController
         redirect_to goal_path(@task.goal)
     end
 
+    def index
+        @tasks = current_user.tasks
+    end
+
     private
 
     def task_params 

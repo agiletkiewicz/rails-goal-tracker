@@ -3,19 +3,16 @@ class GoalsController < ApplicationController
     before_action :require_login
 
     def index
-        @goals = Goal.where(user_id: session[:user_id])
-        if params[:user_id]
-            redirect_to '/' unless session[:user_id] == params[:user_id].to_i
-        end
+        @goals = current_user.goals
     end
 
     def new 
-        @user = User.find_by(id: session[:user_id])
+        @user = current_user
         @goal = Goal.new
     end
 
     def create
-        @user = User.find_by(id: params[:user_id])
+        @user = current_user
         @goal = Goal.new(goal_params)
         @goal.user = @user 
         @goal.save
@@ -34,7 +31,7 @@ class GoalsController < ApplicationController
 
     def edit 
         @goal = Goal.find_by(id: params[:id])
-        @user = User.find_by(id: session[:user_id])
+        @user = current_user
 
         redirect_to '/' unless @goal.user_id == current_user.id
     end
