@@ -17,7 +17,8 @@ class UsersController < ApplicationController
     end
 
     def show 
-        @user = User.find_by(id: params[:id])
+        @user = current_user
+        @goals = current_user.goals
 
         redirect_to '/' unless params[:id].to_i == current_user.id
     end

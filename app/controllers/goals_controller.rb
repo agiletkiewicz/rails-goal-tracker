@@ -17,7 +17,7 @@ class GoalsController < ApplicationController
         @goal.user = @user 
         @goal.save
 
-        redirect_to user_goals_path
+        redirect_to goals_path
     end
 
     def show 

@@ -1,1 +1,20 @@
-show page
+<h1> My Goals </h1>
+
+<% if !@goals %> 
+
+    <%= link_to "Add your first goal!", new_goal_path %>
+
+<% else %>
+
+    <table>
+
+        <% @goals.each do |goal| %>
+        <tr>
+            <th> <%= goal.description %> </th>
+            <th> <%= goal.key_result %> </th>
+            <th> <%= goal.by_when %> </th>
+        </tr>
+        <% end %>
+    </table>
+
+<% end %>
