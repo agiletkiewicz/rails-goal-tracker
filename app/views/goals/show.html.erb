@@ -16,7 +16,7 @@
 <h2>Open Tasks</h2>
 
     <ol>
-    <% @goal.tasks.not_completed.each do |task| %>
+    <% @goal.ordered_open_tasks.each do |task| %>
         
         <li> 
         <%= form_for task do |f| %>
