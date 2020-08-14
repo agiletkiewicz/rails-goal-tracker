@@ -1,17 +1,1 @@
-<%= form_for([@user, @goal]) do |f| %>
-
-    <label>Description:</label><br>
-    <%= f.text_field :description %><br>
-    <label>Key Result:</label><br>
-    <%= f.text_field :key_result %><br>
-    <label>Give your goal a nickname:</label><br>
-    <%= f.text_field :nickname %><br>
-    <label>By when will you finish this goal?:</label><br>
-    <%= f.date_field :by_when %><br>
-    <label>Choose a category:</label><br>
-    <%= f.collection_select :category_id, Category.all, :id, :name %><br>
-
-
-    <%= f.submit "Add your new goal"%>
-
-<% end %>
+<%= render 'form' %>

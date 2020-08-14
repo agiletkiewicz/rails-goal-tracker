@@ -1,5 +1,30 @@
 
+<h1> My open goals: </h1>
 
-<% @goals.each do |goal| %>
-    <%= link_to goal.description, goal_path(goal) %> <br>
-<% end %>
+<table>
+
+    <% @goals.not_completed.each do |goal| %>
+        <tr>
+            <th> <%= goal.description %> </th>
+            <th> <%= goal.key_result %> </th>
+            <th> <%= goal.by_when %> </th>
+        </tr>
+    <% end %>
+
+</table>
+
+<%= render 'form' %>
+
+<h1> Congratulations! These are your completed goals: </h1>
+
+<table>
+
+    <% @goals.completed.each do |goal| %>
+        <tr>
+            <th> <%= goal.description %> </th>
+            <th> <%= goal.key_result %> </th>
+            <th> <%= goal.by_when %> </th>
+        </tr>
+    <% end %>
+
+</table>
