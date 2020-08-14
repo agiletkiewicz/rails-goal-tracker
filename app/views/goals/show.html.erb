@@ -16,12 +16,31 @@
 <% end %>
 
 <h2>Open Tasks</h2>
+
 <% @goal.tasks.not_completed.each do |task| %>
+    
+
+    <%= form_for task do |f| %>
+        <%= f.hidden_field :complete, value: true %>
+            <%= f.submit value: " " %>
+    <% end %>
     <%= task.description %>
+    <%= task.by_when %>
+
 <% end %>
 
 <h2>Completed Tasks</h2>
+
 <% @goal.tasks.completed.each do |task| %>
+    
+
+    <%= form_for task do |f| %>
+        <%= f.hidden_field :complete, value: 0 %>
+            <%= f.submit value: " " %>
+    <% end %>
     <%= task.description %>
+    <%= task.by_when %>
+
 <% end %>
+
 

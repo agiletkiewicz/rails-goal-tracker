@@ -18,3 +18,12 @@
     </table>
 
 <% end %>
+
+<% @user.tasks.each do |task| %>
+    <form action="/">
+    <input class="toggle" type="checkbox">
+    </form>
+    <%= task.description %>
+    
+
+<% end %>
