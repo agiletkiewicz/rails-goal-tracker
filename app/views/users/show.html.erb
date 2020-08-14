@@ -1,29 +1,37 @@
-<h1> My Goals </h1>
 
-<% if !@goals %> 
 
-    <%= link_to "Add your first goal!", new_goal_path %>
+<h2> My open goals </h2>
 
-<% else %>
+    <% if !@goals %> 
 
-    <table>
+        <%= link_to "Add your first goal!", new_goal_path %>
 
-        <% @goals.each do |goal| %>
-        <tr>
-            <th> <%= goal.description %> </th>
-            <th> <%= goal.key_result %> </th>
-            <th> <%= goal.by_when %> </th>
-        </tr>
-        <% end %>
-    </table>
+    <% else %>
 
-<% end %>
+        <table>
+            <% @goals.each do |goal| %>
+            <tr>
+                <th> <%= goal.description %> </th>
+                <th> <%= goal.key_result %> </th>
+                <th> <%= goal.by_when %> </th>
+            </tr>
+            <% end %>
+        </table>
 
-<% @user.tasks.each do |task| %>
-    <form action="/">
-    <input class="toggle" type="checkbox">
-    </form>
-    <%= task.description %>
-    
+    <% end %>
 
-<% end %>
+<h2>My open tasks</h2>
+
+    <ol>
+    <% @user.ordered_open_tasks.each do |task| %>
+
+        <li>
+        <form action="/">
+            <input class="toggle" type="checkbox">
+        </form>
+        <%= task.description %>
+        <%= task.by_when %>
+        </li>
+        
+    <% end %>
+    </ol>

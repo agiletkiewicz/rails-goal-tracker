@@ -7,5 +7,7 @@ class User < ApplicationRecord
     has_many :categories, through: :goals
 
     has_secure_password
+
+
     
 end
