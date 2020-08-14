@@ -4,43 +4,47 @@
 <%= @goal.by_when %>
 
 <br>
-<h2>Add a new task:</h2>
+<h3>Add a new task:</h3>
 <%= form_for([@goal, @task]) do |f| %>
-    <label>Task:</label><br>
-    <%= f.text_field :description %><br>
-    <label>By when will you complete this task?</label><br>
+    <%= f.text_field :description, placeholder: "Add a task" %>
     <%= f.date_field :by_when %><br>
 
-    <%= f.submit %><br>
+    <%= f.submit "add" %><br>
 
 <% end %>
 
 <h2>Open Tasks</h2>
 
-<% @goal.tasks.not_completed.each do |task| %>
-    
-
-    <%= form_for task do |f| %>
-        <%= f.hidden_field :complete, value: true %>
+    <ol>
+    <% @goal.tasks.not_completed.each do |task| %>
+        
+        <li> 
+        <%= form_for task do |f| %>
+            <%= f.hidden_field :complete, value: true %>
             <%= f.submit value: " " %>
-    <% end %>
-    <%= task.description %>
-    <%= task.by_when %>
+        <% end %>
+        <%= task.description %>
+        <%= task.by_when %> 
+        </li>
 
-<% end %>
+    <% end %>
+    </ol>
 
 <h2>Completed Tasks</h2>
 
-<% @goal.tasks.completed.each do |task| %>
-    
+    <ol>
+    <% @goal.tasks.completed.each do |task| %>
+        
 
-    <%= form_for task do |f| %>
-        <%= f.hidden_field :complete, value: 0 %>
+        <li> 
+        <%= form_for task do |f| %>
+            <%= f.hidden_field :complete, value: false %>
             <%= f.submit value: " " %>
+        <% end %>
+        <%= task.description %>
+        <%= task.by_when %> 
+        </li>
+
     <% end %>
-    <%= task.description %>
-    <%= task.by_when %>
-
-<% end %>
-
+    </ol>
 
