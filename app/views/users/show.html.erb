@@ -11,7 +11,7 @@
         <table>
             <% @goals.each do |goal| %>
             <tr>
-                <th> <%= goal.description %> </th>
+                <th> <%= link_to goal.description, goal_path(goal) %> </th>
                 <th> <%= goal.key_result %> </th>
                 <th> <%= deadline(goal) %> </th>
             </tr>

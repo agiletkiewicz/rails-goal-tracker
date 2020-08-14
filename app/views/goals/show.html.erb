@@ -26,6 +26,7 @@
         <% end %>
         <%= task.description %>
         <%= deadline(task) %> 
+        <%= button_to "x", task_path(task), :method => :delete %>
         </li>
 
     <% end %>
@@ -45,8 +46,12 @@
         <% end %>
         <%= task.description %>
         <%= deadline(task) %> 
+        <%= button_to "x", task_path(task), :method => :delete %>
         </li>
 
     <% end %>
     </ol>
 
+
+
+    <%= button_to "Delete Goal", goal_path(@goal), :method => :delete %>

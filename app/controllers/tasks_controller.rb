@@ -29,6 +29,13 @@ class TasksController < ApplicationController
         @tasks = current_user.tasks
     end
 
+    def destroy
+        @task = Task.find_by(id: params[:id])
+        @task.destroy
+
+        redirect_to goal_path(@task.goal)
+    end
+
     private
 
     def task_params 
