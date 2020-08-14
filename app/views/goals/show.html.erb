@@ -1,17 +1,27 @@
 
-<%= @goal.description %>
+<h1><%= @goal.description %></h1>
 <%= @goal.key_result %>
 <%= @goal.by_when %>
 
+<br>
+<h2>Add a new task:</h2>
 <%= form_for([@goal, @task]) do |f| %>
-    <%= f.text_field :description %>
-    <%= f.date_field :by_when %>
+    <label>Task:</label><br>
+    <%= f.text_field :description %><br>
+    <label>By when will you complete this task?</label><br>
+    <%= f.date_field :by_when %><br>
 
-    <%= f.submit %>
+    <%= f.submit %><br>
 
 <% end %>
 
-<% @goal.tasks.each do |task| %>
+<h2>Open Tasks</h2>
+<% @goal.tasks.not_completed.each do |task| %>
+    <%= task.description %>
+<% end %>
+
+<h2>Completed Tasks</h2>
+<% @goal.tasks.completed.each do |task| %>
     <%= task.description %>
 <% end %>
 

@@ -5,7 +5,7 @@
 
     <% @goals.not_completed.each do |goal| %>
         <tr>
-            <th> <%= goal.description %> </th>
+            <th> <%= link_to goal.description, goal_path(goal) %> </th>
             <th> <%= goal.key_result %> </th>
             <th> <%= goal.by_when %> </th>
         </tr>
@@ -21,7 +21,7 @@
 
     <% @goals.completed.each do |goal| %>
         <tr>
-            <th> <%= goal.description %> </th>
+            <th> <%= link_to goal.description, goal_path(goal) %> </th>
             <th> <%= goal.key_result %> </th>
             <th> <%= goal.by_when %> </th>
         </tr>
