@@ -18,7 +18,11 @@ class TasksController < ApplicationController
         @task.update(task_params)
         @task.save
 
-        redirect_to goal_path(@task.goal)
+        if params[:task][:target] == "goal"    
+            redirect_to goal_path(@task.goal)
+        elsif params[:task][:target] == "home" 
+            redirect_to '/'
+        end
     end
 
     def index

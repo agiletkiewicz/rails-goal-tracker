@@ -20,6 +20,7 @@
         
         <li> 
         <%= form_for task do |f| %>
+            <%= f.hidden_field :target, value: "goal" %>
             <%= f.hidden_field :complete, value: true %>
             <%= f.submit value: " " %>
         <% end %>
@@ -38,6 +39,7 @@
 
         <li> 
         <%= form_for task do |f| %>
+            <%= f.hidden_field :target, value: "goal" %>
             <%= f.hidden_field :complete, value: false %>
             <%= f.submit value: " " %>
         <% end %>
