@@ -1,7 +1,7 @@
 
 <h1><%= @goal.description %></h1>
 <%= @goal.key_result %>
-<%= @goal.by_when %>
+<%= deadline(@goal) %>
 
 <br>
 <h3>Add a new task:</h3>
@@ -24,7 +24,7 @@
             <%= f.submit value: " " %>
         <% end %>
         <%= task.description %>
-        <%= task.by_when %> 
+        <%= deadline(task) %> 
         </li>
 
     <% end %>
@@ -42,7 +42,7 @@
             <%= f.submit value: " " %>
         <% end %>
         <%= task.description %>
-        <%= task.by_when %> 
+        <%= deadline(task) %> 
         </li>
 
     <% end %>

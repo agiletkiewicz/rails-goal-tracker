@@ -13,7 +13,7 @@
             <tr>
                 <th> <%= goal.description %> </th>
                 <th> <%= goal.key_result %> </th>
-                <th> <%= goal.by_when %> </th>
+                <th> <%= deadline(goal) %> </th>
             </tr>
             <% end %>
         </table>
@@ -30,7 +30,7 @@
             <input class="toggle" type="checkbox">
         </form>
         <%= task.description %>
-        <%= task.by_when %>
+        <%= deadline(task) %>
         </li>
         
     <% end %>
