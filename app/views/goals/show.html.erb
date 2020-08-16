@@ -15,52 +15,43 @@
 
 <h2>Open Tasks</h2>
 
-    <ol>
+    <table class="task">
     <% @goal.ordered_open_tasks.each do |task| %>
         
-        <li> 
-            <ul class = "task">
-                <li class= "task">
+        <tr> 
+            <td>
                 <%= form_for task do |f| %>
                     <%= f.hidden_field :target, value: "goal" %>
                     <%= f.hidden_field :complete, value: true %>
                     <%= f.submit value: " ", class: "check" %>
                 <% end %>
-                </li>
-                <li class= "task">
+            </td>
+            <td>
                 <%= link_to task.description, edit_task_path(task) %>
-                </li>
-                <li class= "task">
+            </td>
+            <td>
                 <%= deadline(task) %> 
-                </li>
-                <li class= "task">
+            </td>
+            <td>
                 <%= button_to "x", task_path(task), :method => :delete, class: "delete" %>
-                <li>
-            </ul>
-        </li>
+            </td>
+        </tr>
 
     <% end %>
-    </ol>
+    </table>
 
 <h2>Completed Tasks</h2>
 
-    <ol>
+    <ul>
     <% @goal.tasks.completed.each do |task| %>
         
 
-        <li> 
-        <%= form_for task do |f| %>
-            <%= f.hidden_field :target, value: "goal" %>
-            <%= f.hidden_field :complete, value: false %>
-            <%= f.submit value: " " %>
-        <% end %>
-        <%= link_to task.description, edit_task_path(task) %>
-        <%= deadline(task) %> 
-        <%= button_to "x", task_path(task), :method => :delete %>
+        <li class="complete"> 
+            <%= link_to task.description, edit_task_path(task) %>
         </li>
 
     <% end %>
-    </ol>
+    </ul>
 
 
 
