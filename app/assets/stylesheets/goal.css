@@ -31,6 +31,22 @@
     text-decoration: line-through;
    }
 
+   /* Task box  */
+
+   div.task-container {
+       border: solid 1px black;
+       width: 50%;
+       margin: auto;
+   }
+
+   h2 {
+       text-align: center;
+   }
+
+   hr.solid {
+    border-top: 1px solid black;
+  }
+
 }
 
 @media screen and (max-width: 600px) {
