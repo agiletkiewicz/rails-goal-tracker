@@ -31,13 +31,13 @@
                         <%= f.submit value: " ", class: "check" %>
                     <% end %>
                 </td>
-                <td>
+                <td class="task-description">
                     <%= link_to task.description, edit_task_path(task) %>
                 </td>
-                <td>
+                <td class="task-date">
                     <%= deadline(task) %> 
                 </td>
-                <td>
+                <td class="delete-task">
                     <%= button_to "x", task_path(task), :method => :delete, class: "delete" %>
                 </td>
             </tr>

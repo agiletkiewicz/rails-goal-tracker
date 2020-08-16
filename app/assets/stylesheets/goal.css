@@ -33,6 +33,10 @@
 
    /* Task box  */
 
+   table {
+       width: 100%;
+   }
+
    div.task-container {
        border: solid 1px black;
        width: 50%;
@@ -45,7 +49,16 @@
 
    hr.solid {
     border-top: 1px solid black;
+  } 
+
+  table.delete-task {
+    text-align: right;
+  }   
+
+  table.task-date {
+    text-align: right;
   }
+
 
 }
 
@@ -60,6 +73,10 @@
 
     #logo {
         text-align: center;
+    }
+
+    div.task-container {
+        width: 50%;
     }
 
 }
