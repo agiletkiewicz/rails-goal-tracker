@@ -1,6 +1,8 @@
 <%= form_for @task do |f| %>
-    <%= f.text_field :description %>
-    <%= f.date_field :by_when %>
+    <label> Edit task: </label><br>
+    <%= f.text_field :description %><br>
+    <label> Edit due date:</label><br>
+    <%= f.date_field :by_when %><br><br>
 
     <%= f.submit %>
 

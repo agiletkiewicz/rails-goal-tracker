@@ -1,0 +1,52 @@
+
+@media screen {
+
+    #logo img {
+        width: 15%;
+        padding: 10px;
+        vertical-align: bottom;
+    }
+    
+
+    /* Task lists */
+
+    li.task {
+        display: inline-block;
+    }
+
+    ul.task {
+        list-style-type: none;
+    }
+
+    .check {
+        background-color: white;
+        border: 2px solid gray;
+    }
+
+    li {
+        line-height: 2.0em;
+        height: auto;
+   }
+
+   .delete {
+    background-color: white;
+    border: none;
+    color: red;
+   }
+
+}
+
+@media screen and (max-width: 600px) {
+
+    #logo img {
+        width: 60%;
+        padding: 10px;
+        margin: auto;
+        display: block;
+    }
+
+    #logo {
+        text-align: center;
+    }
+
+}

@@ -5,24 +5,36 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    
+    
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     
+
   </head>
 
-    <a href="/">Home</a>
-    <% if !session[:user_id] %>
-      <a href="/signin">Sign In</a> 
-      <a href="/users/new">Sign Up</a> 
-    <% else %>
-      <%= link_to "Manage Goals", goals_path %>
-      <%= link_to "Manage Tasks", tasks_path %>
-      <a href="/logout">Logout</a>
+  <div id="logo">
+    <image src="https://images.unsplash.com/photo-1522111608460-19e7331e00fb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80">
+    <% if session[:user_id] %>
+      <%= current_user.name %>'s Goals
     <% end %>
-    <br><br>
+    </div>
 
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="nav-link" href="/">Home</a>
+      <% if !session[:user_id] %>
+        <a class="nav-link" href="/signin">Sign In</a> 
+        <a class="nav-link" href="/users/new">Sign Up</a> 
+      <% else %>
+        <%= link_to "Manage Goals", goals_path, :class => "nav-link" %>
+        <%= link_to "Manage Tasks", tasks_path, :class => "nav-link" %>
+        <a class="nav-link" href="/logout">Logout</a>
+      <% end %>
+  </nav>
 
+<div class="container">
   <body>
     <%= yield %>
   </body>
+  </div>
 </html>
