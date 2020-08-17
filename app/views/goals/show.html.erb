@@ -20,30 +20,26 @@
     <h2>Open Tasks</h2>
     <hr class="solid">
 
-        <table class="task">
         <% @goal.ordered_open_tasks.each do |task| %>
-            
-            <tr> 
-                <td>
+             
+                <div class ="task-complete">
                     <%= form_for task do |f| %>
                         <%= f.hidden_field :target, value: "goal" %>
                         <%= f.hidden_field :complete, value: true %>
                         <%= f.submit value: " ", class: "check" %>
                     <% end %>
-                </td>
-                <td class="task-description">
+                </div>
+                <div class="task-description">
                     <%= link_to task.description, edit_task_path(task) %>
-                </td>
-                <td class="task-date">
+                </div>
+                <div class="task-date">
                     <%= deadline(task) %> 
-                </td>
-                <td class="delete-task">
+                </div>
+                <div class="task-delete">
                     <%= button_to "x", task_path(task), :method => :delete, class: "delete" %>
-                </td>
-            </tr>
+                </div>
 
         <% end %>
-        </table>
 </div>
 
 <br>

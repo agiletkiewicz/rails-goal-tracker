@@ -33,7 +33,7 @@
 
    /* Task box  */
 
-   table {
+   /* table {
        width: 100%;
    }
 
@@ -57,8 +57,42 @@
 
   table.task-date {
     text-align: right;
+  } */
+
+  .task-container {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-gap: 5px;
+      width: 70%;
+      margin: auto;
+      border: solid 1px black;
   }
 
+  h2 {
+      grid-column: 1 / -1;
+      text-align: center;
+  }
+  hr.solid {
+    border-top: 1px solid black;
+    grid-column: 1 / -1;
+    width: 100%;
+  } 
+
+  .task-complete {
+    grid-column: 2 / 3;
+  }
+
+  .task-delete {
+    grid-column: 12 / 13;
+  }
+
+  .task-date {
+    grid-column: 10 / 12;
+  }
+
+  .task-description {
+    grid-column: 3 / 10;
+  }
 
 }
 
