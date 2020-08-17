@@ -1,18 +1,30 @@
 
-<h1><%= @goal.description %></h1>
-<%= @goal.key_result %>
-<%= deadline(@goal) %>
+<h1 class="goal">Goal:<br><%= @goal.description %></h1>
+
+<div class="goal-container">
+    <div class="goal-result">
+        Key result: 
+        <%= @goal.key_result %>
+    </div>
+    <div class="goal-deadline">
+        By:
+        <%= deadline(@goal) %>
+    </div>
+</div>
 
 <br>
-<h3>Add a new task:</h3>
-<%= form_for([@goal, @task]) do |f| %>
-    <%= f.text_field :description, placeholder: "Add a task" %>
-    <%= f.date_field :by_when %><br>
+<div class="add-task-form">
+    <h3>Add a new task:</h3>
 
-    <%= f.submit "add" %><br>
+    <%= form_for([@goal, @task]) do |f| %>
+        <%= f.text_field :description, placeholder: "Task description" %>
+        <%= f.date_field :by_when %>
+        <br>
 
-<% end %>
+        <%= f.submit "add", class: "add-button" %><br>
 
+    <% end %>
+</div>
 <br>
 
 <div class="task-container">
@@ -49,18 +61,17 @@
     <h2>Completed Tasks</h2>
     <hr class="solid">
 
-        <ul>
+
         <% @goal.tasks.completed.each do |task| %>
             
-
-            <li class="complete"> 
+            <div class="completed">
                 <%= link_to task.description, edit_task_path(task) %>
-            </li>
+            </div>
 
         <% end %>
-        </ul>
+
 
 </div>
 
 <br>
-    <%= button_to "Delete Goal", goal_path(@goal), :method => :delete %>
+    <%= button_to "Delete Goal", goal_path(@goal), :method => :delete, class: "delete-button" %>
