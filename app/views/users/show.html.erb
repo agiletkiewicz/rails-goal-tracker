@@ -20,20 +20,30 @@
 
     <% end %>
 
-<h2>My open tasks</h2>
+<div class="task-container">
 
-    <ol>
-    <% @user.ordered_open_tasks.each do |task| %>
+    <h2>My open tasks</h2>
+    <hr class="solid">
 
-        <li>
-        <%= form_for task do |f| %>
-            <%= f.hidden_field :target, value: "home" %>
-            <%= f.hidden_field :complete, value: true %>
-            <%= f.submit value: " " %>
+        <% @user.ordered_open_tasks.each do |task| %>
+
+            <div class ="task-complete">
+                <%= form_for task do |f| %>
+                    <%= f.hidden_field :target, value: "home" %>
+                    <%= f.hidden_field :complete, value: true %>
+                    <%= f.submit value: " " %>
+                <% end %>
+            </div>
+            <div class="task-description">
+                <%= task.description %>
+            </div>
+            <div class="task-date">
+                <%= deadline(task) %>
+            </div>
+            <div class="task-delete">
+                <%= button_to "x", task_path(task), :method => :delete, class: "delete" %>
+            </div>
+            
         <% end %>
-        <%= task.description %>
-        <%= deadline(task) %>
-        </li>
-        
-    <% end %>
-    </ol>
+
+</div>

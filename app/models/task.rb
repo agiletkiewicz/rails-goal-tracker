@@ -5,7 +5,7 @@ class Task < ApplicationRecord
     scope :not_completed, -> { where(complete: false) }
 
     def complete?
-        self.complete == 1
+        self.complete == true
     end
 
 end

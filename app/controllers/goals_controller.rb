@@ -44,6 +44,7 @@ class GoalsController < ApplicationController
         @goal.save
 
         redirect_to goals_path
+
     end
 
     def destroy
@@ -56,7 +57,7 @@ class GoalsController < ApplicationController
     private 
 
     def goal_params 
-        params.require(:goal).permit(:description, :key_result, :by_when, :nickname, :category_id, :user_id)
+        params.require(:goal).permit(:description, :key_result, :by_when, :nickname, :category_id, :user_id, :complete)
     end
 
     def require_login

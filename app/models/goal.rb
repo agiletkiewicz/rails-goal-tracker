@@ -8,6 +8,8 @@ class Goal < ApplicationRecord
     scope :completed, -> { where(complete: true) }
     scope :not_completed, -> { where(complete: false) }
 
-
+    def complete?
+        self.complete == true
+    end
     
 end
