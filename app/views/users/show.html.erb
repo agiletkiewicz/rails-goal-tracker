@@ -28,31 +28,52 @@
 
 <br><br><br>
 
-<div class="task-container user-page">
+<div class="flex-container">
+    <div class="task-container user-page">
 
-    <h2>My open tasks</h2>
-    <hr class="solid">
+        <h2>My open tasks</h2>
+        <hr class="solid">
 
-        <% @user.ordered_open_tasks.each do |task| %>
+            <% @user.ordered_open_tasks.each do |task| %>
 
-            <div class ="task-complete">
-                <%= form_for task do |f| %>
-                    <%= f.hidden_field :target, value: "home" %>
-                    <%= f.hidden_field :complete, value: true %>
-                    <%= f.submit value: " " %>
-                <% end %>
-            </div>
-            <div class="task-description">
-                <%= link_to task.description, edit_task_path(task) %>
-            </div>
-            <div class="task-date">
-                <% if task.by_when < Time.current %>
-                    <div id="overdue">  <%= deadline(task) %> </div>
-                <% else %>
-                    <%= deadline(task) %> 
-                <% end %>
-            </div>
-            
-        <% end %>
+                <div class ="task-complete">
+                    <%= form_for task do |f| %>
+                        <%= f.hidden_field :target, value: "home" %>
+                        <%= f.hidden_field :complete, value: true %>
+                        <%= f.submit value: " " %>
+                    <% end %>
+                </div>
+                <div class="task-description">
+                    <%= link_to task.description, edit_task_path(task) %>
+                </div>
+                <div class="task-date">
+                    <% if task.by_when < Time.current %>
+                        <div id="overdue">  <%= deadline(task) %> </div>
+                    <% else %>
+                        <%= deadline(task) %> 
+                    <% end %>
+                </div>
+                
+            <% end %>
+
+    </div>
+
+    <div class="task-container user-page">
+
+        <h2>Goal snapshot:</h2>
+        <hr class="solid">
+
+            <% @user.categories.each do |category| %>
+
+                <div class="task-description">
+                    <%= category.name %>
+                </div>
+                <div class="task-date">
+                    <%= category.goal_count(@user) %>
+                </div>
+                
+            <% end %>
+
+    </div>
 
 </div>
