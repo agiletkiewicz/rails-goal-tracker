@@ -19,7 +19,8 @@ class SessionsController < ApplicationController
 
             redirect_to '/'
         else
-            redirect_to '/signin'
+            flash[:alert] = "Could not authenticate your account"
+            render :new
         end
     end
 
