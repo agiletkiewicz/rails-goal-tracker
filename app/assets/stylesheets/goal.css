@@ -305,6 +305,16 @@
         padding-right: 5px;
     }
 
+    /* Error handling */
+
+    #error_explanation {
+        color: red;
+    }
+
+    .field_with_errors input {
+        border-color: red;
+    }
+
 
 @media screen and (max-width: 600px) {
 
