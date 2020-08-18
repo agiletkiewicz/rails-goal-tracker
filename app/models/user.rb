@@ -8,6 +8,9 @@ class User < ApplicationRecord
 
     has_secure_password
 
-
+    def goal_count(category_id)
+        self.goals.where(category_id: category_id).count
+    end
     
+
 end

@@ -292,6 +292,11 @@
       .task-container.user-page {
           width: 40%;
           background-color: white;
+          margin-top: 5px;
+      }
+
+      .task-container.user-page.snapshot {
+        width: 30%;
       }
 
       .task-container.task-date {
@@ -336,5 +341,9 @@
         left: 10%;
         width: 80%;
     }
+
+    .task-container.user-page.snapshot {
+        width: 90%;
+      }
 
 }

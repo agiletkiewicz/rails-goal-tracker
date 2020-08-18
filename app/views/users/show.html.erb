@@ -2,13 +2,14 @@
 
 <h1 class="goal-index"> My open goals </h1>
 
-    <% if !@goals %> 
+<div class="goal-index-container">
 
-        <%= link_to "Add your first goal!", new_goal_path %>
+    <% if !@goals %> 
+        <div class="goal-index-description"> 
+            <%= link_to "Add your first goal!", new_goal_path %>
+        </div>
 
     <% else %>
-
-    <div class="goal-index-container">
 
         <% @goals.not_completed.each do |goal| %>
                 <div class="goal-index-description"> 
@@ -57,22 +58,29 @@
             <% end %>
 
     </div>
+    
 
-    <div class="task-container user-page">
+    <div class="task-container user-page snapshot">
 
         <h2>Goal snapshot:</h2>
         <hr class="solid">
 
-            <% @user.categories.each do |category| %>
-
                 <div class="task-description">
-                    <%= category.name %>
+                    Health:<br>
+                    Fitness:<br>
+                    Professional development:<br>
+                    Relationships:<br>
+                    Social impact:<br>
+                    Personal development:
                 </div>
                 <div class="task-date">
-                    <%= category.goal_count(@user) %>
+                    <%= @user.goal_count(1) %><br>
+                    <%= @user.goal_count(2) %><br>
+                    <%= @user.goal_count(3) %><br>
+                    <%= @user.goal_count(4) %><br>
+                    <%= @user.goal_count(5) %><br>
+                    <%= @user.goal_count(6) %><br>
                 </div>
-                
-            <% end %>
 
     </div>
 
