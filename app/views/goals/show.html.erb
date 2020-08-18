@@ -9,12 +9,15 @@
         By:
         <%= deadline(@goal) %>
     </div>
+    <div class="goal-edit">
+        <%= link_to "edit", edit_goal_path(@goal) %>
+    </div>
 </div>
 
 <% if !@goal.complete? %>
     <%= form_for @goal do |f| %>
         <%= f.hidden_field :complete, value: true %>
-        <%= f.submit "Complete Goal", class: "complete-button" %>
+        <%= f.submit "Goal Complete!", class: "complete-button" %>
     <% end %>
 <% end %>
 
@@ -73,10 +76,10 @@
             
             <div class="check-icon"></div>
             <div class="completed-description">
-            <%= link_to task.description, edit_task_path(task) %>
+                <%= link_to task.description, edit_task_path(task) %>
             </div>
             <div class="completed-date">
-            <%= day_completed(task) %>
+                <%= day_completed(task) %>
             </div>
 
         <% end %>

@@ -141,7 +141,7 @@
 
     .goal-container {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(12, 1fr);
         width: 70%;
         margin: auto;
         border: solid 1px black;
@@ -152,11 +152,15 @@
 
 
     .goal-result {
-        grid-column: 1 / 2;
+        grid-column: 1 / 6;
     }
 
     .goal-deadline {
-        grid-column: 2 / 3;
+        grid-column: 6 / 11;
+    }
+
+    .goal-edit {
+        grid-column: 11 / 13;
     }
 
 
