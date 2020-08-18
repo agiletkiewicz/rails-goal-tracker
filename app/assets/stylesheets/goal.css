@@ -96,6 +96,7 @@
       border: solid 1px black;
       padding-bottom: 20px;
       background-color: white;
+      box-shadow: 8px 8px 6px #d9d4d4;
   }
 
   .task-container h2 {
@@ -159,7 +160,7 @@
     }
 
     .add-button {
-        background-color: white;
+        background-color: transparent;
         border: none;
         font-weight: bold;
     }
@@ -195,6 +196,7 @@
         padding-top: 20px;
         text-align: center;
         background-color: white;
+        box-shadow: 8px 8px 6px #d9d4d4;
     }
 
 
@@ -224,7 +226,8 @@
         padding-bottom: 20px;
         padding-top: 20px;
         text-align: center;
-        background-image: linear-gradient(45deg, #E8E8E8, white)
+        background-image: linear-gradient(45deg, #E8E8E8, white);   
+        box-shadow: 8px 8px 6px #d9d4d4;
     }
 
 
@@ -319,6 +322,13 @@
 
     .task-container.user-page {
         width: 90%;
+    }
+
+    .welcome {
+        position: absolute;
+        top: 25%;
+        left: 10%;
+        width: 80%;
     }
 
 }
