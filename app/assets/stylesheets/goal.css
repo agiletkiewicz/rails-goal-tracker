@@ -37,6 +37,21 @@
         grid-column: 1fr;
     }
 
+    /* Welcome */
+
+    .welcome {
+        position: absolute;
+        top: 30%;
+        left: 30%;
+        text-align: center;
+        width: 40%;
+        margin: auto;
+        border: solid 1px black;
+        padding-bottom: 20px;
+        background-color: white;
+        box-shadow: 10px 10px 8px #c4c2c2;
+    }
+
 
     /* Goal show page: Task buttons */
 

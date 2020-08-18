@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
 
     def new
         @user = User.new
+        render layout: "welcome"
     end
 
     def create 

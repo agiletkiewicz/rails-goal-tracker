@@ -1,16 +1,19 @@
+<div class="welcome">
 
+    <h1> Create your account: </h1>
 
-<%= form_for @user do |f| %>
+    <%= form_for @user do |f| %>
 
-    <label>Name:</label><br>
-    <%= f.text_field :name %><br>
-    <label>Create a username:</label><br>
-    <%= f.text_field :username %><br>
-    <label>Create a password:</label><br>
-    <%= f.password_field :password %><br>
-    <label>Confirm your password:</label><br>
-    <%= f.password_field :password_confirmation %><br>
+        <label>Name:</label><br>
+        <%= f.text_field :name %><br><br>
+        <label>Create a username:</label><br>
+        <%= f.text_field :username %><br><br>
+        <label>Create a password:</label><br>
+        <%= f.password_field :password %><br><br>
+        <label>Confirm your password:</label><br>
+        <%= f.password_field :password_confirmation %><br><br>
 
-    <%= f.submit %>
+        <%= f.submit %>
 
-<% end %>
+    <% end %>
+</div>

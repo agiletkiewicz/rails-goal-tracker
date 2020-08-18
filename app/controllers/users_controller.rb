@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
     def new 
         @user = User.new
+        render layout: "welcome"
     end
 
     def create 
@@ -23,7 +24,7 @@ class UsersController < ApplicationController
 
             # redirect_to '/' unless params[:id].to_i == current_user.id
         else
-            redirect_to '/welcome'
+            redirect_to '/signin'
         end
     end
 

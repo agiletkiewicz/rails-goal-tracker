@@ -1,10 +1,16 @@
-<%= form_for @user, url: signin_path, method: :post do |f| %>
+<div class="welcome">
+<h1> Login to see your goals! </h1>
+    <%= form_for @user, url: signin_path, method: :post do |f| %>
 
-    <label>Username:</label><br>
-    <%= f.text_field :username %><br>
-    <label>Password::</label><br>
-    <%= f.password_field :password %><br>
+        <label>Username:</label><br>    
+        <%= f.text_field :username %><br><br>
+        <label>Password::</label><br>
+        <%= f.password_field :password %><br><br>
 
-    <%= f.submit "Sign In" %>
+        <%= f.submit "Sign In" %>
 
-<% end %>
+    <% end %>
+
+    <h3>New user?<br><%= link_to "Create an account", new_user_path %></h3>
+    
+</div>
