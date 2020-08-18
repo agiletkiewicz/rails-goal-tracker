@@ -8,8 +8,7 @@ class User < ApplicationRecord
 
     has_secure_password
 
-    validates :name, presence: true
-    validates :username, presence: true
+    validates :name, :username, presence: true
 
     def goal_count(category_id)
         self.goals.where(category_id: category_id).count

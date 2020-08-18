@@ -17,9 +17,12 @@ class GoalsController < ApplicationController
         @user = current_user
         @goal = Goal.new(goal_params)
         @goal.user = @user 
-        @goal.save
-
-        redirect_to goals_path
+        if @goal.save
+            redirect_to goals_path
+        else 
+            @goals = current_user.goals
+            render :index 
+        end
     end
 
     def show 

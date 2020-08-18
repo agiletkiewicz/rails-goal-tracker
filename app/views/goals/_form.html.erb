@@ -1,9 +1,19 @@
 
+<% if @goal.errors.any? %>
+<div id="error_explanation"> 
+
+  <% @goal.errors.full_messages.each do |msg| %>
+    <%= msg %>
+  <% end %>
+
+</div>
+<% end %>
+
     <%= form_for([@user, @goal]) do |f| %>
 
         <%= f.text_field :description, placeholder: "Describe your goal" %><br><br>
         <%= f.text_field :key_result, placeholder: "Key result expected" %><br><br>
-        <%= f.collection_select :category_id, Category.all, :id, :name, :include_blank => 'Choose a cateogry' %><br><br>
+        <%= f.collection_select :category_id, Category.all, :id, :name, :include_blank => 'Choose a category' %><br><br>
         By when: <br>
         <%= f.date_field :by_when %><br><br>
 
