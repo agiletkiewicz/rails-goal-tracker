@@ -84,7 +84,7 @@
     }
 
 
-   /* Gaol show page: Task container  */
+   /* Goal show page: Task container  */
 
 
   .task-container {
@@ -140,6 +140,10 @@
 
     #overdue {
         color: red;
+    }
+
+    .note-content {
+        grid-column: 2 / -1;
     }
 
   /* Goal show page details */

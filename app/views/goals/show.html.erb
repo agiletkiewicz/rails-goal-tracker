@@ -84,6 +84,22 @@
 </div>
 
 <br>
+<div class="task-container">
+
+    <h2>Notes</h2>
+    <hr class="solid">
+
+        <% @goal.notes.each do |note| %>
+           
+            <div class="note-content">
+                <%= note.content %>
+            </div>
+
+        <% end %>
+
+
+</div>
+<br>
 
 <div class="task-container">
 
