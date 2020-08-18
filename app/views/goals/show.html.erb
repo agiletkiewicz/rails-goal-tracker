@@ -44,6 +44,7 @@
                     <%= form_for task do |f| %>
                         <%= f.hidden_field :target, value: "goal" %>
                         <%= f.hidden_field :complete, value: true %>
+                        <%= f.hidden_field :completed_date, value: Time.current %>
                         <%= f.submit value: " ", class: "check" %>
                     <% end %>
                 </div>
@@ -67,12 +68,15 @@
     <h2>Completed Tasks</h2>
     <hr class="solid">
 
-        <% @goal.tasks.completed.each do |task| %>
+        <% @goal.ordered_closed_tasks.each do |task| %>
            
             
-            <div class="completed">
             <div class="check-icon"></div>
+            <div class="completed-description">
             <%= link_to task.description, edit_task_path(task) %>
+            </div>
+            <div class="completed-date">
+            <%= day_completed(task) %>
             </div>
 
         <% end %>

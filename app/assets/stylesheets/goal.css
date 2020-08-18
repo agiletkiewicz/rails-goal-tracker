@@ -39,6 +39,7 @@
     background-size: contain;
     position: relative;
     top: 2px;
+    grid-column: 2 / 3;
 }
 
 
@@ -85,8 +86,13 @@
         text-align: left;
     }
 
-    .completed {
-        grid-column: 2 / -1;
+    .completed-description {
+        grid-column: 3 / 9;
+    }
+
+    .completed-date {
+        grid-column: 9 / 12;
+        text-align: right;
     }
 
   /* Goal show page details */
