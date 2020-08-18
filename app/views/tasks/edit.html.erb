@@ -1,13 +1,17 @@
-<%= form_for @task do |f| %>
-    <label> Edit task: </label><br>
-    <%= f.text_field :description %><br>
-    <label> Edit due date:</label><br>
-    <%= f.date_field :by_when %><br><br>
+<div class="standalone-form">
 
-    <%= f.submit %>
+<h1> Edit your task:</h1>
+    <%= form_for @task do |f| %>
+        <label> Edit task: </label><br>
+        <%= f.text_field :description %><br><br>
+        <label> Edit due date:</label><br>
+        <%= f.date_field :by_when %><br><br><br>
 
-<% end %>
+        <%= f.submit %>
 
-<br>
+    <% end %>
 
-<%= button_to "Delete Task", task_path(@task), :method => :delete %>
+    <br>
+
+    <%= button_to "Delete Task", task_path(@task), :method => :delete %>
+</div>

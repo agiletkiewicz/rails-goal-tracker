@@ -1,3 +1,9 @@
-<h2> Edit your goal: </h2>
+<div class="standalone-form">
 
-<%= render 'form' %>
+    <h2> Edit your goal: </h2>
+
+    <%= render 'form' %>
+    <br>
+    <%= button_to "Delete Goal", goal_path(@goal), :method => :delete %>
+
+</div>
