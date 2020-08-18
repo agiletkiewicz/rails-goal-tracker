@@ -94,6 +94,9 @@
             <div class="note-content">
                 <%= note.content %>
             </div>
+            <div class="task-delete">
+                <%= button_to "x", note_path(note), :method => :delete, class: "delete" %>
+            </div>
 
         <% end %>
 

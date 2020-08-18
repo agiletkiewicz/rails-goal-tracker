@@ -143,7 +143,7 @@
     }
 
     .note-content {
-        grid-column: 2 / -1;
+        grid-column: 2 / 12;
     }
 
   /* Goal show page details */

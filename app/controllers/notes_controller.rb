@@ -9,6 +9,13 @@ class NotesController < ApplicationController
         redirect_to goal_path(@goal)
     end
 
+    def destroy
+        @note = Note.find_by(id: params[:id])
+        @note.destroy
+
+        redirect_to goal_path(@note.goal)
+    end
+
     private
 
     def note_params 
