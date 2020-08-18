@@ -1,29 +1,38 @@
 
-<h1> My open goals: </h1>
+<h1 class="goal-index"> My open goals: </h1>
 
-<table>
+<div class="goal-index-container">
 
     <% @goals.not_completed.each do |goal| %>
-        <tr>
-            <th> <%= link_to goal.description, goal_path(goal) %> </th>
-            <th> <%= goal.key_result %> </th>
-            <th> <%= deadline(goal) %> </th>
-        </tr>
+            <div class="goal-index-description"> 
+                <%= link_to goal.description, goal_path(goal) %>
+            </div>
+            <div class="goal-index-result">
+                <%= goal.key_result %>
+            </div>
+            <div class="goal-index-date">
+                <%= deadline(goal) %> 
+            </div>
     <% end %>
 
-</table>
+</div>
 
 <%= render 'form' %>
 
-<h1> Congratulations! These are your completed goals: </h1>
+<h1 class="goal-index"> Congratulations! These are your completed goals: </h1>
 
-<table>
+<div class="goal-index-container">
 
     <% @goals.completed.each do |goal| %>
-        <tr>
-            <th> <%= link_to goal.description, goal_path(goal) %> </th>
-            <th> <%= goal.key_result %> </th>
-        </tr>
+            <div class="goal-index-description"> 
+                <%= link_to goal.description, goal_path(goal) %>
+            </div>
+            <div class="goal-index-result">
+                <%= goal.key_result %>
+            </div>
+            <div class="goal-index-date">
+                <%= day_completed(goal) %> 
+            </div>
     <% end %>
 
-</table>
+</div>

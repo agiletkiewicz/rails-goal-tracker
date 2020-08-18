@@ -17,6 +17,7 @@
 <% if !@goal.complete? %>
     <%= form_for @goal do |f| %>
         <%= f.hidden_field :complete, value: true %>
+        <%= f.hidden_field :completed_date, value: Time.current %>
         <%= f.submit "Goal Complete!", class: "complete-button" %>
     <% end %>
 <% end %>

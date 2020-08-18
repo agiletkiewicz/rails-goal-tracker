@@ -57,7 +57,7 @@ class GoalsController < ApplicationController
     private 
 
     def goal_params 
-        params.require(:goal).permit(:description, :key_result, :by_when, :nickname, :category_id, :user_id, :complete)
+        params.require(:goal).permit(:description, :key_result, :by_when, :nickname, :category_id, :user_id, :complete, :completed_date)
     end
 
     def require_login
