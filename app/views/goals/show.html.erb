@@ -55,7 +55,11 @@
                     <%= link_to task.description, edit_task_path(task) %>
                 </div>
                 <div class="task-date">
-                    <%= deadline(task) %> 
+                    <% if task.by_when < Time.current %>
+                        <div id="overdue">  <%= deadline(task) %> </div>
+                    <% else %>
+                        <%= deadline(task) %> 
+                    <% end %>
                 </div>
                 <div class="task-delete">
                     <%= button_to "x", task_path(task), :method => :delete, class: "delete" %>

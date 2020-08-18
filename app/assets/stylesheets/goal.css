@@ -95,6 +95,10 @@
         text-align: right;
     }
 
+    #overdue {
+        color: red;
+    }
+
   /* Goal show page details */
 
 
@@ -161,6 +165,13 @@
 
     .goal-edit {
         grid-column: 11 / 13;
+    }
+
+    /* Goal form  */
+
+    .goal-form {
+        margin: auto; 
+        text-align: center;
     }
 
 
