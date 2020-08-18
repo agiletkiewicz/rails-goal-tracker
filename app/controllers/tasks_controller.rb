@@ -4,9 +4,13 @@ class TasksController < ApplicationController
         @goal = Goal.find_by(id: params[:goal_id])
         @task = Task.new(task_params)
         @task.goal = @goal 
-        @task.save 
+        if @task.save 
 
-        redirect_to goal_path(@goal)
+            redirect_to goal_path(@goal)
+        else 
+            @note = Note.new
+            render 'goals/show'
+        end
     end
 
     def edit 

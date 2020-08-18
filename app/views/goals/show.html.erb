@@ -26,6 +26,17 @@
 
 <div class="flex-container">
     <div class="add-task-form">
+
+        <% if @task.errors.any? %>
+            <div id="error_explanation"> 
+
+            <% @task.errors.full_messages.each do |msg| %>
+                <%= msg %>
+            <% end %>
+
+            </div>
+        <% end %>
+
         <h3>Add a new task:</h3>
 
         <%= form_for([@goal, @task]) do |f| %>
