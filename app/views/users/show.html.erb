@@ -1,6 +1,6 @@
 
 
-<h2> My open goals </h2>
+<h1 class="goal-index"> My open goals </h1>
 
     <% if !@goals %> 
 
@@ -8,19 +8,27 @@
 
     <% else %>
 
-        <table>
-            <% @goals.each do |goal| %>
-            <tr>
-                <th> <%= link_to goal.description, goal_path(goal) %> </th>
-                <th> <%= goal.key_result %> </th>
-                <th> <%= deadline(goal) %> </th>
-            </tr>
-            <% end %>
-        </table>
+    <div class="goal-index-container">
+
+        <% @goals.not_completed.each do |goal| %>
+                <div class="goal-index-description"> 
+                    <%= link_to goal.description, goal_path(goal) %>
+                </div>
+                <div class="goal-index-result">
+                    <%= goal.key_result %>
+                </div>
+                <div class="goal-index-date">
+                    <%= deadline(goal) %> 
+                </div>
+        <% end %>
+
+</div>
 
     <% end %>
 
-<div class="task-container">
+<br><br><br>
+
+<div class="task-container user-page">
 
     <h2>My open tasks</h2>
     <hr class="solid">
@@ -35,13 +43,10 @@
                 <% end %>
             </div>
             <div class="task-description">
-                <%= task.description %>
+                <%= link_to task.description, edit_task_path(task) %>
             </div>
             <div class="task-date">
                 <%= deadline(task) %>
-            </div>
-            <div class="task-delete">
-                <%= button_to "x", task_path(task), :method => :delete, class: "delete" %>
             </div>
             
         <% end %>
