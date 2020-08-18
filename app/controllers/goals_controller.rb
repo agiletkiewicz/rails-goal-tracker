@@ -26,6 +26,7 @@ class GoalsController < ApplicationController
         @goal = Goal.find_by(id: params[:id])
         if @goal.user_id == current_user.id
             @task= Task.new
+            @note = Note.new
         else
             redirect_to '/'
         end

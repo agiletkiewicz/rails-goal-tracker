@@ -157,7 +157,9 @@
     .add-task-form {
         margin: auto;
         text-align: center;
+        align-content: center;
     }
+
 
     .add-button {
         background-color: transparent;
@@ -257,7 +259,7 @@
         padding: 30px;
     }
 
-    .add-goal-container {
+    .flex-container {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;

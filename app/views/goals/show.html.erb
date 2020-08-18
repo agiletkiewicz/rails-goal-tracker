@@ -23,17 +23,31 @@
 <% end %>
 
 <br>
-<div class="add-task-form">
-    <h3>Add a new task:</h3>
 
-    <%= form_for([@goal, @task]) do |f| %>
-        <%= f.text_field :description, placeholder: "Task description" %>
-        <%= f.date_field :by_when %>
+<div class="flex-container">
+    <div class="add-task-form">
+        <h3>Add a new task:</h3>
+
+        <%= form_for([@goal, @task]) do |f| %>
+            <%= f.text_field :description, placeholder: "Task description" %>
+            <%= f.date_field :by_when %>
+            <br>
+
+            <%= f.submit "add", class: "add-button" %><br>
+
+        <% end %>
+    </div>
+
+    <div class="add-task-form">
+    <h3>Add a new note:</h3>
+
+    <%= form_for([@goal, @note]) do |f| %>
+            <%= f.text_area :content, placeholder: "Record a note about this goal", :cols => 30, :rows => 5 %>
         <br>
-
         <%= f.submit "add", class: "add-button" %><br>
 
     <% end %>
+</div>
 </div>
 <br>
 
