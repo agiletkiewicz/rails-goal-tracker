@@ -4,9 +4,13 @@ class NotesController < ApplicationController
         @goal = Goal.find_by(id: params[:goal_id])
         @note = Note.new(note_params)
         @note.goal = @goal 
-        @note.save 
+        if @note.save 
 
-        redirect_to goal_path(@goal)
+            redirect_to goal_path(@goal)
+        else 
+            @task = Task.new
+            render 'goals/show'
+        end
     end
 
     def destroy

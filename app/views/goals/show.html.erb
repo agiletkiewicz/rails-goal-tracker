@@ -50,6 +50,17 @@
     </div>
 
     <div class="add-task-form">
+
+    <% if @note.errors.any? %>
+        <div id="error_explanation"> 
+
+        <% @note.errors.full_messages.each do |msg| %>
+            <%= msg %>
+        <% end %>
+
+        </div>
+    <% end %>
+
     <h3>Add a new note:</h3>
 
     <%= form_for([@goal, @note]) do |f| %>
