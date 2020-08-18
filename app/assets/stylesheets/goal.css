@@ -1,5 +1,9 @@
 
-
+    /* Universal */
+    
+    body {
+        font-family: 'Raleway', sans-serif;
+    }
 
     #logo img {
         width: 15%;
@@ -8,11 +12,7 @@
     }
 
 
-    /* Task lists */
-
-    table .task {
-        text-align: left;
-    }
+    /* Goal show page: Task buttons */
 
 
     .check {
@@ -21,16 +21,29 @@
     }
 
 
-   .delete {
-    background-color: white;
-    border: none;
-    color: red;
+    .delete {
+        background-color: white;
+        border: none;
+        color: red;
    }
 
+   .check-icon {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    border: none;
+    display: inline-block;
+    margin-right: 6px;
+    transition: background-image 0.2s linear;
+    background-image: url("https://image.flaticon.com/icons/svg/747/747836.svg");
+    background-size: contain;
+    position: relative;
+    top: 2px;
+}
 
-   /* Task box  */
 
-  
+   /* Gaol show page: Task container  */
+
 
   .task-container {
       display: grid;
@@ -45,110 +58,100 @@
   .task-container h2 {
       grid-column: 1 / -1;
       text-align: center;
-  }
+      vertical-align: center;
+    }
 
-  hr.solid {
-    border-top: 1px solid black;
-    grid-column: 1 / -1;
-    width: 100%;
-  } 
+    hr.solid {
+        border-top: 1px solid black;
+        grid-column: 1 / -1;
+        width: 100%;
+    } 
 
-  .task-complete {
-    grid-column: 2 / 3;
-  }
+    .task-complete {
+        grid-column: 2 / 3;
+    }
 
-  .task-delete {
-    grid-column: 12 / 13;
-  }
+    .task-delete {
+        grid-column: 12 / 13;
+    }
 
-  .task-date {
-    grid-column: 10 / 12;
-  }
+    .task-date {
+        grid-column: 9 / 12;
+        text-align: right;
+    }
 
-  .task-description {
-    grid-column: 3 / 10;
-  }
+    .task-description {
+        grid-column: 3 / 9;
+        text-align: left;
+    }
 
-  .completed {
-    grid-column: 2 / -1;
-  }
+    .completed {
+        grid-column: 2 / -1;
+    }
 
-  /* Goal show page  */
-
-
-  .delete-button {
-    color: red;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 12px;
-    padding: 10px;
-  }
-
-  .add-task-form {
-    margin: auto;
-    text-align: center;
-  }
-
-  .add-button {
-    background-color: white;
-    border: none;
-    font-weight: bold;
-  }
-
-  .complete-button {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 12px;
-    padding: 10px;
-    margin-top: 10px;
-  }
-
- 
-  .check-icon {
-    cursor: pointer;
-    width: 24px;
-    height: 24px;
-    border: none;
-    display: inline-block;
-    margin-right: 6px;
-    transition: background-image 0.2s linear;
-    background-image: url("https://image.flaticon.com/icons/svg/747/747836.svg");
-    background-size: contain;
-    position: relative;
-    top: 2px;
-}
-
-  /* Goal box */
+  /* Goal show page details */
 
 
-h1.goal {
-    text-align: center;
-    display: block;
-    margin: auto;
-    padding: 30px;
-}
+    .delete-button {
+        color: red;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 12px;
+        padding: 10px;
+    }
 
-  .goal-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    width: 70%;
-    margin: auto;
-    border: solid 1px black;
-    padding-bottom: 20px;
-    padding-top: 20px;
-    text-align: center;
-}
+    .add-task-form {
+        margin: auto;
+        text-align: center;
+    }
+
+    .add-button {
+        background-color: white;
+        border: none;
+        font-weight: bold;
+    }
+
+    .complete-button {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 12px;
+        padding: 10px;
+        margin-top: 10px;
+    }
 
 
-.goal-result {
-  grid-column: 1 / 2;
-}
 
-.goal-deadline {
-  grid-column: 2 / 3;
-}
+  /* Goal show page: Goal list */
+
+
+    h1.goal {
+        text-align: center;
+        display: block;
+        margin: auto;
+        padding: 30px;
+    }
+
+    .goal-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: 70%;
+        margin: auto;
+        border: solid 1px black;
+        padding-bottom: 20px;
+        padding-top: 20px;
+        text-align: center;
+    }
+
+
+    .goal-result {
+        grid-column: 1 / 2;
+    }
+
+    .goal-deadline {
+        grid-column: 2 / 3;
+    }
 
 
 @media screen and (max-width: 600px) {
@@ -164,7 +167,11 @@ h1.goal {
         text-align: center;
     }
 
-    div.task-container {
+    .task-container {
+        width: 100%;
+    }
+
+    .goal-container {
         width: 100%;
     }
 
