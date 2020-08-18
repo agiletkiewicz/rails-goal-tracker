@@ -167,12 +167,6 @@
         grid-column: 11 / 13;
     }
 
-    /* Goal form  */
-
-    .goal-form {
-        margin: auto; 
-        text-align: center;
-    }
 
     /* Goal index page */
 
@@ -213,6 +207,28 @@
         margin: auto;
         padding: 30px;
     }
+
+    .add-goal-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 30px;
+    }
+
+    .add-goal-component {
+        background-color: white;
+        border-width: 2px;
+        border-style: solid;
+        border-color: black;
+        margin: 5px;
+        padding: 10px;
+        width: 280px;
+      }
+
+      .add-form {
+          text-align: center;
+      }
 
 
 @media screen and (max-width: 600px) {
