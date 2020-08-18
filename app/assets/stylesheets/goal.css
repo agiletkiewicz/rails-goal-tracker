@@ -162,6 +162,7 @@
         margin: auto;
         text-align: center;
         align-content: center;
+        width: 350px;
     }
 
 
@@ -190,6 +191,15 @@
         display: block;
         margin: auto;
         padding: 30px;
+        width: 70%;
+    }
+
+    h2.goal {
+        text-align: center;
+        display: block;
+        margin: auto;
+        padding: 30px;
+        width: 70%
     }
 
     .goal-container {

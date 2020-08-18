@@ -1,4 +1,6 @@
 <h1 class="goal">Goal:<br><%= @goal.description %></h1>
+<br>
+<h2 class="goal">Category: <%= @goal.category.name %></h2>
 
 <div class="goal-container">
     <div class="goal-result">
@@ -25,6 +27,7 @@
 <br>
 
 <div class="flex-container">
+
     <div class="add-task-form">
 
         <% if @task.errors.any? %>
@@ -51,26 +54,28 @@
 
     <div class="add-task-form">
 
-    <% if @note.errors.any? %>
-        <div id="error_explanation"> 
+        <% if @note.errors.any? %>
+            <div id="error_explanation"> 
 
-        <% @note.errors.full_messages.each do |msg| %>
-            <%= msg %>
+            <% @note.errors.full_messages.each do |msg| %>
+                <%= msg %>
+            <% end %>
+
+            </div>
         <% end %>
 
-        </div>
-    <% end %>
+        <h3>Add a new note:</h3>
 
-    <h3>Add a new note:</h3>
+        <%= form_for([@goal, @note]) do |f| %>
+                <%= f.text_area :content, placeholder: "Record a note about this goal", :cols => 30, :rows => 5 %>
+            <br>
+            <%= f.submit "add", class: "add-button" %><br>
 
-    <%= form_for([@goal, @note]) do |f| %>
-            <%= f.text_area :content, placeholder: "Record a note about this goal", :cols => 30, :rows => 5 %>
-        <br>
-        <%= f.submit "add", class: "add-button" %><br>
+        <% end %>
+    </div>
 
-    <% end %>
 </div>
-</div>
+
 <br>
 
 <div class="task-container">
