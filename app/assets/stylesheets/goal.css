@@ -14,10 +14,27 @@
         padding-bottom: 100px;
     }
 
-    #logo img {
-        width: 10%;
-        padding: 10px;
-        vertical-align: bottom;
+
+    .wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 50px auto;
+    }
+
+    .navbar {
+        grid-column: 1fr;
+        background-color: #C6DEFF;
+        vertical-align: middle;
+        line-height: 50px;
+    }
+
+    .navbar a {
+        text-decoration: none;
+        padding: 15px;
+    }
+
+    body {
+        grid-column: 1fr;
     }
 
 
@@ -37,19 +54,19 @@
    }
 
    .check-icon {
-    cursor: pointer;
-    width: 24px;
-    height: 24px;
-    border: none;
-    display: inline-block;
-    margin-right: 6px;
-    transition: background-image 0.2s linear;
-    background-image: url("https://image.flaticon.com/icons/svg/747/747836.svg");
-    background-size: contain;
-    position: relative;
-    top: 2px;
-    grid-column: 2 / 3;
-}
+        cursor: pointer;
+        width: 24px;
+        height: 24px;
+        border: none;
+        display: inline-block;
+        margin-right: 6px;
+        transition: background-image 0.2s linear;
+        background-image: url("https://image.flaticon.com/icons/svg/747/747836.svg");
+        background-size: contain;
+        position: relative;
+        top: 2px;
+        grid-column: 2 / 3;
+    }
 
 
    /* Gaol show page: Task container  */

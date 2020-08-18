@@ -17,27 +17,24 @@
 
   </head>
 
-  <div id="logo">
-    <image src= "https://image.flaticon.com/icons/svg/747/747836.svg">
-    <% if session[:user_id] %>
-      <%= current_user.name %>'s Goals
-    <% end %>
-    </div>
+  <div class = "wrapper">
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="nav-link" href="/">Home</a>
-      <% if !session[:user_id] %>
-        <a class="nav-link" href="/signin">Sign In</a> 
-        <a class="nav-link" href="/users/new">Sign Up</a> 
-      <% else %>
-        <%= link_to "Manage Goals", goals_path, :class => "nav-link" %>
-        <a class="nav-link" href="/logout">Logout</a>
-      <% end %>
-  </nav>
+    <nav class="navbar">
+        <a class="nav-link" href="/">Home</a>
+        <% if !session[:user_id] %>
+          <a class="nav-link" href="/signin">Sign In</a> 
+          <a class="nav-link" href="/users/new">Sign Up</a> 
+        <% else %>
+          <%= link_to "Manage Goals", goals_path, :class => "nav-link" %>
+          <a class="nav-link" href="/logout">Logout</a>
+        <% end %>
+    </nav>
 
-<div class="container">
-  <body>
-    <%= yield %>
-  </body>
-  </div>
+
+    <body>
+      <%= yield %>
+    </body>
+
+  <div>
+
 </html>
