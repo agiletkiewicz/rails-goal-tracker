@@ -30,15 +30,7 @@
 
     <div class="add-task-form">
 
-        <% if @task.errors.any? %>
-            <div id="error_explanation"> 
-
-            <% @task.errors.full_messages.each do |msg| %>
-                <%= msg %>
-            <% end %>
-
-            </div>
-        <% end %>
+        <%= render partial: 'shared/error', locals: {object: @task} %>
 
         <h3>Add a new task:</h3>
 
@@ -54,15 +46,7 @@
 
     <div class="add-task-form">
 
-        <% if @note.errors.any? %>
-            <div id="error_explanation"> 
-
-            <% @note.errors.full_messages.each do |msg| %>
-                <%= msg %>
-            <% end %>
-
-            </div>
-        <% end %>
+        <%= render partial: 'shared/error', locals: {object: @note} %>
 
         <h3>Add a new note:</h3>
 

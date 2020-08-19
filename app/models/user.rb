@@ -13,6 +13,5 @@ class User < ApplicationRecord
     def goal_count(category_id)
         self.goals.where(category_id: category_id).count
     end
-    
 
 end

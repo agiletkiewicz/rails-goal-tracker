@@ -1,3 +1,8 @@
-<h2> Add a new goal: </h2>
+<div class="standalone-form">
 
-<%= render 'form' %>
+    <h2> Add a new goal: </h2>
+
+    <%= render partial: 'shared/error', locals: {object: @goal} %>
+    <%= render 'form' %>
+
+</div>

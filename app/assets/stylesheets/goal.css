@@ -37,6 +37,12 @@
         grid-column: 1fr;
     }
 
+    .heading {
+        text-decoration: underline;
+        padding-bottom: 15px;
+        font-size: larger;
+    }
+
     /* Welcome */
 
     .standalone-form {
@@ -258,15 +264,26 @@
     .goal-index-result {
         grid-column: 5 / 9;
         padding-top: 10px;
+        text-align: left;
+        padding-left: 10px;
     }
 
     .goal-index-date {
         grid-column: 9 / 13;
         border-left: solid 1px black;
         padding-top: 10px;
+        text-align: left;
+        padding-left: 10px;
     }
 
     h1.goal-index {
+        text-align: center;
+        display: block;
+        margin: auto;
+        padding: 30px;
+    }
+
+    h2.goal-index {
         text-align: center;
         display: block;
         margin: auto;

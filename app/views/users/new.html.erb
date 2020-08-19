@@ -1,14 +1,6 @@
 <div class="standalone-form">
 
-<% if @user.errors.any? %>
-  <div id="error_explanation"> 
-
-    <% @user.errors.full_messages.each do |msg| %>
-      <%= msg %>
-    <% end %>
-
-  </div>
-<% end %>
+    <%= render partial: 'shared/error', locals: {object: @user} %>
 
     <h1> Create your account: </h1>
 

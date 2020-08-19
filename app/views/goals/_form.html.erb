@@ -1,14 +1,4 @@
 
-<% if @goal.errors.any? %>
-<div id="error_explanation"> 
-
-  <% @goal.errors.full_messages.each do |msg| %>
-    <%= msg %>
-  <% end %>
-
-</div>
-<% end %>
-
     <%= form_for([@user, @goal]) do |f| %>
 
         <%= f.text_field :description, placeholder: "Describe your goal" %><br><br>
