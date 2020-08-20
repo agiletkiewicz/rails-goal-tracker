@@ -12,15 +12,13 @@
 
 <div class="goal-container">
     <div class="goal-result">
-        Key result: 
-        <%= @goal.key_result %>
+        Key result: <%= @goal.key_result %>
     </div>
     <div class="goal-category">
         Category: <%= @goal.category.name %>
     </div>
     <div class="goal-deadline">
-        By:
-        <%= deadline(@goal) %>
+        By: <%= deadline(@goal) %>
     </div>
 </div>
 
@@ -37,14 +35,11 @@
         <%= render partial: 'shared/error', locals: {object: @task} %>
 
         <h3>Add a new task:</h3>
-
         <%= form_for([@goal, @task]) do |f| %>
             <%= f.text_field :description, placeholder: "Task description" %>
             <%= f.date_field :by_when %>
             <br>
-
             <%= f.submit "add", class: "add-button" %><br>
-
         <% end %>
     </div>
 
@@ -53,12 +48,10 @@
         <%= render partial: 'shared/error', locals: {object: @note} %>
 
         <h3>Add a new note:</h3>
-
         <%= form_for([@goal, @note]) do |f| %>
                 <%= f.text_area :content, placeholder: "Record a note about this goal", :cols => 30, :rows => 5 %>
             <br>
             <%= f.submit "add", class: "add-button" %><br>
-
         <% end %>
     </div>
 
@@ -66,67 +59,63 @@
 
 <br>
 
-<div class="task-container">
+<% if @goal.tasks.empty? %>
 
-    <h2>Open Tasks</h2>
-    <hr class="solid">
+    <div class="task-container">
+        <h2 class="goal-index">Welcome to your new goal!</h2>
+        <h2 class="goal-index">Start adding daily tasks that will lead to the achievement of your goal.</h2>
+    </div>
+
+<% else %>
+
+    <div class="task-container">
+
+        <h2>Open Tasks</h2>
+        <hr class="solid">
 
         <% @goal.ordered_open_tasks.each do |task| %>
-             
-                <div class ="task-complete">
-                    <%= form_for task do |f| %>
-                        <%= f.hidden_field :target, value: "goal" %>
-                        <%= f.hidden_field :complete, value: true %>
-                        <%= f.hidden_field :completed_date, value: Time.current %>
-                        <%= f.submit value: " ", class: "check" %>
-                    <% end %>
-                </div>
-                <div class="task-description">
-                    <%= link_to task.description, edit_task_path(task) %>
-                </div>
-                <div class="task-date">
-                    <% if task.by_when < Time.current %>
-                        <div id="overdue">  <%= deadline(task) %> </div>
-                    <% else %>
-                        <%= deadline(task) %> 
-                    <% end %>
-                </div>
-                <div class="task-delete">
-                    <%= button_to "x", task_path(task), :method => :delete, class: "delete" %>
-                </div>
-
+            <div class ="task-complete">
+                <%= form_for task do |f| %>
+                    <%= f.hidden_field :target, value: "goal" %>
+                    <%= f.hidden_field :complete, value: true %>
+                    <%= f.hidden_field :completed_date, value: Time.current %>
+                    <%= f.submit value: " ", class: "check" %>
+                <% end %>
+            </div>
+            <div class="task-description">
+                <%= link_to task.description, edit_task_path(task) %>
+            </div>
+            <div class="task-date" id="<%= 'overdue' if overdue(task) %>">
+                <%= deadline(task) %> 
+            </div>
+            <div class="task-delete">
+                <%= button_to "x", task_path(task), :method => :delete, class: "delete" %>
+            </div>
         <% end %>
-</div>
+    </div>
+    <br>
+    <div class="task-container">
 
-<br>
-<div class="task-container">
-
-    <h2>Notes</h2>
-    <hr class="solid">
+        <h2>Notes</h2>
+        <hr class="solid">
 
         <% @goal.notes.each do |note| %>
-           
             <div class="note-content">
                 <%= note.content %>
             </div>
             <div class="task-delete">
                 <%= button_to "x", note_path(note), :method => :delete, class: "delete" %>
             </div>
-
         <% end %>
+    </div>
+    <br>
 
+    <div class="task-container">
 
-</div>
-<br>
-
-<div class="task-container">
-
-    <h2>Completed Tasks</h2>
-    <hr class="solid">
+        <h2>Completed Tasks</h2>
+        <hr class="solid">
 
         <% @goal.ordered_closed_tasks.each do |task| %>
-           
-            
             <div class="check-icon"></div>
             <div class="completed-description">
                 <%= link_to task.description, edit_task_path(task) %>
@@ -134,11 +123,10 @@
             <div class="completed-date">
                 <%= day_completed(task) %>
             </div>
-
         <% end %>
-
-
-</div>
+    </div>
+<% end %>
 
 <br>
+
     <%= button_to "Delete Goal", goal_path(@goal), :method => :delete, class: "delete-button" %>

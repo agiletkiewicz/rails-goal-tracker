@@ -8,17 +8,16 @@
     <div class="goal-index-date heading">Deadline:</div>
 
     <% @goals.not_completed.each do |goal| %>
-            <div class="goal-index-description"> 
-                <%= link_to goal.description, goal_path(goal) %>
-            </div>
-            <div class="goal-index-result">
-                <%= goal.key_result %>
-            </div>
-            <div class="goal-index-date">
-                <%= deadline(goal) %> 
-            </div>
+        <div class="goal-index-description"> 
+            <%= link_to goal.description, goal_path(goal) %>
+        </div>
+        <div class="goal-index-result">
+            <%= goal.key_result %>
+        </div>
+        <div class="goal-index-date">
+            <%= deadline(goal) %> 
+        </div>
     <% end %>
-
 </div>
 
 <div class="flex-container">
@@ -37,7 +36,6 @@
         <u>Realistic:</u><br> can you realistically achieve it? <br>
         <u>Timely:</u><br> when exactly do you want to accomplish it? <br>
     </div>
-
 </div>
 
 <h1 class="goal-index"> Congratulations! These are your completed goals: </h1>
@@ -45,15 +43,14 @@
 <div class="goal-index-container">
 
     <% @goals.completed.each do |goal| %>
-            <div class="goal-index-description"> 
-                <%= link_to goal.description, goal_path(goal) %>
-            </div>
-            <div class="goal-index-result">
-                <%= goal.key_result %>
-            </div>
-            <div class="goal-index-date">
-                <%= day_completed(goal) %> 
-            </div>
+        <div class="goal-index-description"> 
+            <%= link_to goal.description, goal_path(goal) %>
+        </div>
+        <div class="goal-index-result">
+            <%= goal.key_result %>
+        </div>
+        <div class="goal-index-date">
+            <%= day_completed(goal) %> 
+        </div>
     <% end %>
-
 </div>
