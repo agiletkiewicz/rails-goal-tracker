@@ -43,17 +43,12 @@
         <% end %>
     </div>
 
-    <div class="add-task-form">
+    <div class="add-note-form">
 
-        <%= render partial: 'shared/error', locals: {object: @note} %>
+    <h3><%= link_to "Add a new note", new_goal_note_path(@goal) %></h3>
 
-        <h3>Add a new note:</h3>
-        <%= form_for([@goal, @note]) do |f| %>
-                <%= f.text_area :content, placeholder: "Record a note about this goal", :cols => 30, :rows => 5 %>
-            <br>
-            <%= f.submit "add", class: "add-button" %><br>
-        <% end %>
     </div>
+
 
 </div>
 

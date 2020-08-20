@@ -183,6 +183,14 @@
         width: 350px;
     }
 
+    .add-note-form {
+        margin: auto;
+        text-align: center;
+        align-content: center;
+        width: 350px;
+        border: solid 1px black;
+        background-color: white;
+    }
 
     .add-button {
         background-color: transparent;

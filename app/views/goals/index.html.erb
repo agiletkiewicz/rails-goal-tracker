@@ -16,7 +16,7 @@
             <%= goal.category.name %>
         </div>
         <div class="goal-index-tasks">
-            <%= link_to goal.open_tasks_count, goal_tasks_path(goal) %>
+            <%= link_to "#{goal.open_tasks_count} tasks", goal_tasks_path(goal) %>
         </div>
         <div class="goal-index-date">
             <%= deadline(goal) %> 
