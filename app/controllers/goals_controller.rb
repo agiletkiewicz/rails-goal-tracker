@@ -7,7 +7,8 @@ class GoalsController < ApplicationController
 
     def index
         @user = current_user
-        @goals = @user.goals
+        @open_goals = @user.ordered_open_goals
+        @closed_goals = @user.goals.completed
         @goal = Goal.new
     end
 
@@ -40,7 +41,6 @@ class GoalsController < ApplicationController
     def edit 
         @goal = Goal.find_by(id: params[:id])
         @user = current_user
-
     end
 
     def update

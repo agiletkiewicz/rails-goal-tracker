@@ -8,7 +8,7 @@
     <div class="goal-index-tasks heading">Open tasks:</div>
     <div class="goal-index-date heading">Deadline:</div>
 
-    <% @user.ordered_open_goals.each do |goal| %>
+    <% @open_goals.each do |goal| %>
         <div class="goal-index-description"> 
             <%= link_to goal.description, goal_path(goal) %>
         </div>
@@ -16,7 +16,7 @@
             <%= goal.category.name %>
         </div>
         <div class="goal-index-tasks">
-            <%= link_to "#{goal.open_tasks_count} tasks", goal_tasks_path(goal) %>
+            <%= link_to "#{count_open_tasks(goal)} tasks", goal_tasks_path(goal) %>
         </div>
         <div class="goal-index-date">
             <%= deadline(goal) %> 
@@ -35,7 +35,7 @@
     <div class="smart add-goal-component">
         <h2> Writing smart goals: </h2>
         <u>Specific:</u> <br> what do you want to do? <br>
-        <u>Measurable:</u><br> how will you know when you've reached it? <br>
+        <u>Measurable:</u><br> how will you know when you have reached it? <br>
         <u>Achievable:</u><br> is it in your power to achieve it? <br>
         <u>Realistic:</u><br> can you realistically achieve it? <br>
         <u>Timely:</u><br> when exactly do you want to accomplish it? <br>
@@ -46,7 +46,7 @@
 
 <div class="goal-index-container">
 
-    <% @goals.completed.each do |goal| %>
+    <% @closed_goals.each do |goal| %>
         <div class="goal-index-description"> 
             <%= link_to goal.description, goal_path(goal) %>
         </div>
