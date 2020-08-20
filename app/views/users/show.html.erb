@@ -9,36 +9,29 @@
 
 <% else %>
 
-    <h1 class="goal-index">Hi <%= @user.name %></h1>
-    <h2 class="goal-index">you have <%= @user.upcoming_tasks_count %> upcoming tasks to make progress toward your goals.</h2>
+    <h1 class="goal-index">Hi <%= @user.name %>!</h1>
+    <h2 class="goal-index">you have <%= @user.upcoming_tasks_count %> upcoming tasks <br>to make progress toward your goals.</h2>
 
     <div class="flex-container">
 
         <div class="task-container user-page">
-
-
             <h2 class="goal-heading">Tasks due:</h2>
             <hr class="solid">
-
-                <% @user.upcoming_tasks.each do |task| %>
-                    <div class ="task-complete">
-                        <%= form_for task do |f| %>
-                            <%= f.hidden_field :target, value: "home" %>
-                            <%= f.hidden_field :complete, value: true %>
-                            <%= f.submit value: " " %>
-                        <% end %>
-                    </div>
-                    <div class="task-description">
-                        <%= link_to task.description, edit_task_path(task) %>
-                    </div>
-                    <div class="task-date">
-                        <% if task.by_when < Time.current %>
-                            <div id="overdue">  <%= deadline(task) %> </div>
-                        <% else %>
-                            <%= deadline(task) %> 
-                        <% end %>
-                    </div>
-                <% end %>
+            <% @user.upcoming_tasks.each do |task| %>
+                <div class ="task-complete">
+                    <%= form_for task do |f| %>
+                        <%= f.hidden_field :target, value: "home" %>
+                        <%= f.hidden_field :complete, value: true %>
+                        <%= f.submit value: " " %>
+                    <% end %>
+                </div>
+                <div class="task-description">
+                    <%= link_to task.description, edit_task_path(task) %>
+                </div>
+                <div class="task-date" id="<%= 'overdue' if overdue(task) %>">
+                        <%= deadline(task) %> 
+                </div>
+            <% end %>
         </div>
 
                  
@@ -46,14 +39,13 @@
             <h2 class="goal-heading"> Open goals: </h2>    
             <hr class="solid">              
             <% @goals.not_completed.each do |goal| %>
-                    <div class="goal-description"> 
-                        <%= link_to goal.description, goal_path(goal) %>
-                    </div>
-                    <div class="goal-date">
-                        by: <%= deadline(goal) %>
-                    </div>
+                <div class="goal-description"> 
+                    <%= link_to goal.description, goal_path(goal) %>
+                </div>
+                <div class="goal-date">
+                    by: <%= deadline(goal) %>
+                </div>
             <% end %>
-
         </div>
     </div>   
 <% end %>
