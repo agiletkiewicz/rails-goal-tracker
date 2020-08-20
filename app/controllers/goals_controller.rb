@@ -48,7 +48,6 @@ class GoalsController < ApplicationController
         @goal.save
 
         redirect_to goals_path
-
     end
 
     def destroy

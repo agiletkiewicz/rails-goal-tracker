@@ -1,17 +1,16 @@
 Rails.application.routes.draw do
 
-  resources :categories
-  resources :notes
-  resources :tasks
+  resources :users, only: [:show, :new, :create] do 
+    resources :goals, only: [:create, :update]
+  end
 
   resources :goals do 
-    resources :tasks, only: [:edit, :create, :update, :index]
-    resources :notes, only: [:edit, :create, :update, :new]
+    resources :tasks, only: [:edit, :update, :index, :create]
+    resources :notes, only: [:new, :create]
   end
 
-  resources :users do 
-    resources :goals, only: [:edit, :create, :update]
-  end
+  resources :tasks, only: [:index, :edit, :update, :destroy]
+
 
   root 'users#show'
   get '/welcome' => 'static#home'

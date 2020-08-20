@@ -8,8 +8,4 @@ module ApplicationHelper
         goal.completed_date.strftime("%b %e %Y")
     end
 
-    def current_user 
-        User.find_by(id: session[:user_id])
-    end
-
 end
