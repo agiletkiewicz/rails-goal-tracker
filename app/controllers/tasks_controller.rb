@@ -1,5 +1,7 @@
 class TasksController < ApplicationController
 
+    before_action :require_login
+
     def create 
         @goal = Goal.find_by(id: params[:goal_id])
         @task = Task.new(task_params)

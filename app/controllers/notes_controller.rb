@@ -1,5 +1,7 @@
 class NotesController < ApplicationController
 
+    before_action :require_login
+
     def create
         @goal = Goal.find_by(id: params[:goal_id])
         @note = Note.new(note_params)
