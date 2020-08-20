@@ -126,12 +126,12 @@
     }
 
     .task-date {
-        grid-column: 9 / 12;
+        grid-column: 8 / 12;
         text-align: right;
     }
 
     .task-description {
-        grid-column: 3 / 9;
+        grid-column: 3 / 8;
         text-align: left;
     }
 
@@ -321,18 +321,49 @@
 
       /* User page */
 
+      .goal-container.user-page {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        width: 40%;
+        margin: auto;
+        border: solid 1px black;
+        padding-bottom: 20px;
+        padding-top: 5px;
+        text-align: center;
+        background-image: linear-gradient(45deg, #E8E8E8, white);   
+        box-shadow: 8px 8px 6px #d9d4d4;
+        margin-top: 10px;
+      }
+
+      .goal-heading {
+        grid-column: 1 / -1;
+        vertical-align: middle;
+      }
+
+      .goal-description {
+        grid-column: 2 / 9;
+        padding-top: 10px;
+        text-align: left;
+        padding-left: 10px;
+      }
+
+      .goal-date {
+        grid-column: 9 / 13;
+        padding-top: 10px;
+        text-align: right;
+        padding-right: 5px;
+      }
+
       .task-container.user-page {
           width: 40%;
           background-color: white;
           margin-top: 5px;
+          padding-top: 5px;
       }
 
-      .task-container.user-page.snapshot {
-        width: 30%;
-      }
 
       .task-container.task-date {
-        grid-column: 9 / 13;
+        grid-column: 8 / 13;
         text-align: right;
         padding-right: 5px;
     }
@@ -385,6 +416,10 @@
     }
 
     .task-container.user-page.snapshot {
+        width: 90%;
+      }
+
+      .goal-container.user-page {
         width: 90%;
       }
 

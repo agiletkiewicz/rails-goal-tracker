@@ -10,14 +10,17 @@
 <% else %>
 
     <h1 class="goal-index">Hi <%= @user.name %></h1>
+    <h2 class="goal-index">you have <%= @user.upcoming_tasks_count %> upcoming tasks to make progress toward your goals.</h2>
+
+    <div class="flex-container">
 
         <div class="task-container user-page">
 
-            <h2>you have <%= @user.upcoming_tasks_count %> upcoming tasks:</h2>
+
+            <h2 class="goal-heading">Tasks due:</h2>
             <hr class="solid">
 
                 <% @user.upcoming_tasks.each do |task| %>
-
                     <div class ="task-complete">
                         <%= form_for task do |f| %>
                             <%= f.hidden_field :target, value: "home" %>
@@ -35,90 +38,22 @@
                             <%= deadline(task) %> 
                         <% end %>
                     </div>
-                    
                 <% end %>
-
         </div>
 
-    <h2 class="goal-index">Open goals: </h2>
-
-    <div class="goal-index-container">
-
-        <div class="goal-index-description heading">Goal:</div>
-        <div class="goal-index-result heading">Key result:</div>
-        <div class="goal-index-date heading">Deadline:</div>
-
-        <% @goals.not_completed.each do |goal| %>
-                <div class="goal-index-description"> 
-                    <%= link_to goal.description, goal_path(goal) %>
-                </div>
-                <div class="goal-index-result">
-                    <%= goal.key_result %>
-                </div>
-                <div class="goal-index-date">
-                    <%= deadline(goal) %> 
-                </div>
-        <% end %>
-
-    </div>
-
-    <br><br><br>
-
-    <div class="flex-container">
-        <div class="task-container user-page">
-
-            <h2>Open tasks:</h2>
-            <hr class="solid">
-
-                <% @user.ordered_open_tasks.each do |task| %>
-
-                    <div class ="task-complete">
-                        <%= form_for task do |f| %>
-                            <%= f.hidden_field :target, value: "home" %>
-                            <%= f.hidden_field :complete, value: true %>
-                            <%= f.submit value: " " %>
-                        <% end %>
+                 
+        <div class="goal-container user-page">
+            <h2 class="goal-heading"> Open goals: </h2>    
+            <hr class="solid">              
+            <% @goals.not_completed.each do |goal| %>
+                    <div class="goal-description"> 
+                        <%= link_to goal.description, goal_path(goal) %>
                     </div>
-                    <div class="task-description">
-                        <%= link_to task.description, edit_task_path(task) %>
+                    <div class="goal-date">
+                        by: <%= deadline(goal) %>
                     </div>
-                    <div class="task-date">
-                        <% if task.by_when < Time.current %>
-                            <div id="overdue">  <%= deadline(task) %> </div>
-                        <% else %>
-                            <%= deadline(task) %> 
-                        <% end %>
-                    </div>
-                    
-                <% end %>
+            <% end %>
 
         </div>
-        
-
-        <div class="task-container user-page snapshot">
-
-            <h2>Goal snapshot:</h2>
-            <hr class="solid">
-
-                    <div class="task-description">
-                        Health:<br>
-                        Fitness:<br>
-                        Professional development:<br>
-                        Relationships:<br>
-                        Social impact:<br>
-                        Personal development:
-                    </div>
-                    <div class="task-date">
-                        <%= @user.goal_count(1) %><br>
-                        <%= @user.goal_count(2) %><br>
-                        <%= @user.goal_count(3) %><br>
-                        <%= @user.goal_count(4) %><br>
-                        <%= @user.goal_count(5) %><br>
-                        <%= @user.goal_count(6) %><br>
-                    </div>
-
-        </div>
-
-    </div>
-
+    </div>   
 <% end %>
