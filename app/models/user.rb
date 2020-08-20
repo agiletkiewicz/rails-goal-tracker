@@ -7,7 +7,7 @@ class User < ApplicationRecord
     has_secure_password
 
     validates :name, :username, presence: true
-
+    validates :username, uniqueness: true
 
     def goal_count(category_id)
         self.goals.where(category_id: category_id).count
