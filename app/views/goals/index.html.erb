@@ -5,6 +5,7 @@
 
     <div class="goal-index-description heading">Goal:</div>
     <div class="goal-index-result heading">Key result:</div>
+    <div class="goal-index-category heading">Category:</div>
     <div class="goal-index-date heading">Deadline:</div>
 
     <% @goals.not_completed.each do |goal| %>
@@ -13,6 +14,9 @@
         </div>
         <div class="goal-index-result">
             <%= goal.key_result %>
+        </div>
+        <div class="goal-index-category">
+            <%= goal.category.name %>
         </div>
         <div class="goal-index-date">
             <%= deadline(goal) %> 

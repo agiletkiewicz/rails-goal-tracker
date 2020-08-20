@@ -1,0 +1,26 @@
+<br>
+<div class="task-container">
+
+<h2>All open Tasks</h2>
+<hr class="solid">
+
+<% @tasks.each do |task| %>
+    <div class ="task-complete">
+        <%= form_for task do |f| %>
+            <%= f.hidden_field :target, value: "goal" %>
+            <%= f.hidden_field :complete, value: true %>
+            <%= f.hidden_field :completed_date, value: Time.current %>
+            <%= f.submit value: " ", class: "check" %>
+        <% end %>
+    </div>
+    <div class="task-description">
+        <%= link_to task.description, edit_task_path(task) %>
+    </div>
+    <div class="task-date" id="<%= 'overdue' if overdue(task) %>">
+        <%= deadline(task) %> 
+    </div>
+    <div class="task-delete">
+        <%= button_to "x", task_path(task), :method => :delete, class: "delete" %>
+    </div>
+<% end %>
+</div>

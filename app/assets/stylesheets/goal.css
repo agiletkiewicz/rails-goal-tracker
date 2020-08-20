@@ -43,6 +43,18 @@
         font-size: larger;
     }
 
+    a:link {
+        color: black;
+      }
+      
+      a:visited {
+        color: black;
+      }
+
+      a:hover {
+        color: hotpink;
+      }
+
     /* Welcome */
 
     .standalone-form {
@@ -247,7 +259,7 @@
     .goal-index-container {
         display: grid;
         grid-template-columns: repeat(12, 1fr);
-        width: 70%;
+        width: 80%;
         margin: auto;
         border: solid 1px black;
         padding-bottom: 20px;
@@ -259,24 +271,32 @@
 
 
     .goal-index-description {
-        grid-column: 1 / 5;
+        grid-column: 1 / 4;
         text-align: left;
         border-right: solid 1px black;
-        padding-top: 10px;
+        padding-top: 15px;
         padding-left: 10px;
     }
 
     .goal-index-result {
-        grid-column: 5 / 9;
-        padding-top: 10px;
+        grid-column: 4 / 8;
+        padding-top: 15px;
         text-align: left;
         padding-left: 10px;
     }
 
-    .goal-index-date {
-        grid-column: 9 / 13;
+    .goal-index-category {
+        grid-column: 8 / 11;
+        padding-top: 15px;
+        text-align: left;
+        padding-left: 10px;
         border-left: solid 1px black;
-        padding-top: 10px;
+    }
+
+    .goal-index-date {
+        grid-column: 11 / 13;
+        border-left: solid 1px black;
+        padding-top: 15px;
         text-align: left;
         padding-left: 10px;
     }

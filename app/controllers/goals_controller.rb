@@ -18,7 +18,7 @@ class GoalsController < ApplicationController
         @goal = Goal.new(goal_params)
         @goal.user = @user 
         if @goal.save
-            redirect_to goals_path
+            redirect_to goal_path(@goal)
         else 
             @goals = current_user.goals
             render :index 

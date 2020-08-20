@@ -33,7 +33,7 @@ class TasksController < ApplicationController
     end
 
     def index
-        @tasks = current_user.tasks
+        @tasks = current_user.ordered_open_tasks
     end
 
     def destroy
