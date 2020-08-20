@@ -63,10 +63,6 @@ class GoalsController < ApplicationController
         params.require(:goal).permit(:description, :key_result, :by_when, :nickname, :category_id, :user_id, :complete, :completed_date)
     end
 
-    def require_login
-        return head(:forbidden) unless logged_in?
-    end
-
     def correct_user?
         @goal = Goal.find_by(id: params[:id])
         return head(:forbidden) unless @goal.user_id == current_user.id

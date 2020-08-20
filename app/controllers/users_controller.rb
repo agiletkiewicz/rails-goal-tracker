@@ -19,10 +19,9 @@ class UsersController < ApplicationController
 
     def show 
         if logged_in?
-            @goals = current_user.goals
             @user = current_user
-
-            # redirect_to '/' unless params[:id].to_i == current_user.id
+            @goals = @user.ordered_open_goals
+            @upcoming_tasks = @user.upcoming_tasks
         else
             redirect_to '/signin'
         end

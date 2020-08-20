@@ -17,10 +17,6 @@ class User < ApplicationRecord
         self.tasks.upcoming.sort_by {|task| task.by_when}
     end
 
-    def upcoming_tasks_count
-        upcoming_tasks.count
-    end
-
     def ordered_open_goals
         self.goals.not_completed.sort_by {|goal| goal.by_when}
       end
