@@ -33,7 +33,12 @@ class TasksController < ApplicationController
     end
 
     def index
-        @tasks = current_user.ordered_open_tasks
+        if params[:goal_id]
+            @goal = Goal.find(params[:goal_id])
+            @tasks = @goal.tasks
+        else 
+            @tasks = current_user.ordered_open_tasks
+        end
     end
 
     def destroy

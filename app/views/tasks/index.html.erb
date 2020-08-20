@@ -1,7 +1,11 @@
 <br>
 <div class="task-container">
 
-<h2>All open Tasks</h2>
+<h2>All open tasks</h2>
+<% if @goal %>
+    <h2>for goal: <%= @goal.description %></h2>
+<% end %>
+
 <hr class="solid">
 
 <% @tasks.each do |task| %>
