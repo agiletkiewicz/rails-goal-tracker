@@ -191,12 +191,17 @@
 
   /* Goal show page: Goal list */
 
+    .edit {
+        display: block;
+        margin: auto;
+        padding: 5px;
+    }
 
     h1.goal {
         text-align: center;
         display: block;
         margin: auto;
-        padding: 30px;
+        padding: 40px;
         width: 70%;
     }
 
@@ -223,17 +228,17 @@
 
 
     .goal-result {
-        grid-column: 1 / 7;
+        grid-column: 1 / 5;
+        border-right: solid 1px black;
+    }
+
+    .goal-category {
+        grid-column: 5 / 10;
         border-right: solid 1px black;
     }
 
     .goal-deadline {
-        grid-column: 7 / 11;
-        border-right: solid 1px black;
-    }
-
-    .goal-edit {
-        grid-column: 11 / 13;
+        grid-column: 10 / 13;
     }
 
 

@@ -5,7 +5,7 @@ class Task < ApplicationRecord
     
     scope :completed, -> { where(complete: true) }
     scope :not_completed, -> { where(complete: false) }
-    scope :today, -> {not_completed.where("tasks.by_when < ?", Time.current.tomorrow.to_date)}
+    scope :upcoming, -> {not_completed.where("tasks.by_when < ?", Time.current + (4*24*60*60))}
 
     def complete?
         self.complete == true

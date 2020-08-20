@@ -1,21 +1,6 @@
-<h1 class="goal">Goal:<br><%= @goal.description %></h1>
-<br>
-<h2 class="goal">Category: <%= @goal.category.name %></h2>
+<h1 class="goal"><u>Goal: <%= @goal.description %></u></h1>
 
-<div class="goal-container">
-    <div class="goal-result">
-        Key result: 
-        <%= @goal.key_result %>
-    </div>
-    <div class="goal-deadline">
-        By:
-        <%= deadline(@goal) %>
-    </div>
-    <div class="goal-edit">
-        <%= link_to "edit", edit_goal_path(@goal) %>
-    </div>
-</div>
-
+<h2>
 <% if !@goal.complete? %>
     <%= form_for @goal do |f| %>
         <%= f.hidden_field :complete, value: true %>
@@ -23,6 +8,25 @@
         <%= f.submit "Goal Complete!", class: "complete-button" %>
     <% end %>
 <% end %>
+</h2>
+
+<div class="goal-container">
+    <div class="goal-result">
+        Key result: 
+        <%= @goal.key_result %>
+    </div>
+    <div class="goal-category">
+        Category: <%= @goal.category.name %>
+    </div>
+    <div class="goal-deadline">
+        By:
+        <%= deadline(@goal) %>
+    </div>
+</div>
+
+<div class="edit">
+    <%= link_to "edit", edit_goal_path(@goal) %>
+</div>
 
 <br>
 
