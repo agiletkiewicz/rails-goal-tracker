@@ -51,7 +51,7 @@
 
 <br>
 
-<% if @goal.tasks.empty? %>
+<% if @open_tasks.empty? && @closed_tasks.empty? %>
 
     <div class="task-container">
         <h2 class="goal-index">Welcome to your new goal!</h2>
@@ -65,7 +65,7 @@
         <h2>Open Tasks</h2>
         <hr class="solid">
 
-        <% @goal.ordered_open_tasks.each do |task| %>
+        <% @open_tasks.each do |task| %>
             <div class ="task-complete">
                 <%= form_for task do |f| %>
                     <%= f.hidden_field :target, value: "goal" %>
@@ -91,7 +91,7 @@
         <h2>Notes</h2>
         <hr class="solid">
 
-        <% @goal.notes.each do |note| %>
+        <% @notes.each do |note| %>
             <div class="note-content">
                 <%= note.content %>
             </div>
@@ -107,7 +107,7 @@
         <h2>Completed Tasks</h2>
         <hr class="solid">
 
-        <% @goal.ordered_closed_tasks.each do |task| %>
+        <% @closed_tasks.each do |task| %>
             <div class="check-icon"></div>
             <div class="completed-description">
                 <%= link_to task.description, edit_task_path(task) %>

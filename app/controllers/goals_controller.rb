@@ -6,8 +6,8 @@ class GoalsController < ApplicationController
 
 
     def index
-        @goals = current_user.goals
         @user = current_user
+        @goals = @user.goals
         @goal = Goal.new
     end
 
@@ -30,6 +30,9 @@ class GoalsController < ApplicationController
 
     def show 
         @goal = Goal.find_by(id: params[:id])
+        @open_tasks = @goal.ordered_open_tasks
+        @closed_tasks = @goal.ordered_closed_tasks
+        @notes = @goal.notes
         @task= Task.new
         @note = Note.new
     end
