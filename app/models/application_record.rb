@@ -11,4 +11,8 @@ class ApplicationRecord < ActiveRecord::Base
       sorted = open_tasks.sort_by {|task| task.by_when}
     end
 
+    def open_tasks_count
+      self.tasks.not_completed.count
+    end
+
 end

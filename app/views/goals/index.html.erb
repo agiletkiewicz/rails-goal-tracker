@@ -4,19 +4,19 @@
 <div class="goal-index-container">
 
     <div class="goal-index-description heading">Goal:</div>
-    <div class="goal-index-result heading">Key result:</div>
     <div class="goal-index-category heading">Category:</div>
+    <div class="goal-index-tasks heading">Open tasks:</div>
     <div class="goal-index-date heading">Deadline:</div>
 
-    <% @goals.not_completed.each do |goal| %>
+    <% @user.ordered_open_goals.each do |goal| %>
         <div class="goal-index-description"> 
             <%= link_to goal.description, goal_path(goal) %>
         </div>
-        <div class="goal-index-result">
-            <%= goal.key_result %>
-        </div>
         <div class="goal-index-category">
             <%= goal.category.name %>
+        </div>
+        <div class="goal-index-tasks">
+            <%= goal.open_tasks_count %>
         </div>
         <div class="goal-index-date">
             <%= deadline(goal) %> 

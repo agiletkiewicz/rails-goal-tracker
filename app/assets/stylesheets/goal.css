@@ -271,22 +271,22 @@
 
 
     .goal-index-description {
-        grid-column: 1 / 4;
+        grid-column: 1 / 5;
         text-align: left;
         border-right: solid 1px black;
         padding-top: 15px;
         padding-left: 10px;
     }
 
-    .goal-index-result {
-        grid-column: 4 / 8;
+    .goal-index-category {
+        grid-column: 5 / 8;
         padding-top: 15px;
         text-align: left;
         padding-left: 10px;
     }
 
-    .goal-index-category {
-        grid-column: 8 / 11;
+    .goal-index-tasks {
+        grid-column: 8 / 10;
         padding-top: 15px;
         text-align: left;
         padding-left: 10px;
@@ -294,7 +294,7 @@
     }
 
     .goal-index-date {
-        grid-column: 11 / 13;
+        grid-column: 10 / 13;
         border-left: solid 1px black;
         padding-top: 15px;
         text-align: left;

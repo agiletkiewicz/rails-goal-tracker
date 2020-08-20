@@ -13,6 +13,5 @@ class Goal < ApplicationRecord
     def complete?
         self.complete == true
     end
-
     
 end
