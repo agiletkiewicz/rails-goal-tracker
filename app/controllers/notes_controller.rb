@@ -1,16 +1,17 @@
 class NotesController < ApplicationController
 
     before_action :require_login
+    before_action :correct_user?
+    skip_before_action :correct_user?, only: [:new, :create]
 
     def create
         @goal = Goal.find_by(id: params[:goal_id])
-        @note = Note.new(note_params)
-        @note.goal = @goal 
+        @note = @goal.notes.build(note_params)
         if @note.save 
             redirect_to goal_path(@goal)
         else 
             @task = Task.new
-            render 'goals/show'
+            render 'new'
         end
     end
 
@@ -30,6 +31,11 @@ class NotesController < ApplicationController
 
     def note_params 
         params.require(:note).permit(:content, :goal_id)
+    end
+
+    def correct_user?
+        @note = Note.find_by(id: params[:id])
+        return head(:forbidden) unless current_user.notes.include?(@note)
     end
 
 end

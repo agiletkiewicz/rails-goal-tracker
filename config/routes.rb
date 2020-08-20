@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :tasks, only: [:index, :edit, :update, :destroy]
+  resources :notes, only: [:destroy]
 
 
   root 'users#show'

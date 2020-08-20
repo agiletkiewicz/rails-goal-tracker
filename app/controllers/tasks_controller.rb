@@ -9,7 +9,6 @@ class TasksController < ApplicationController
         @task = Task.new(task_params)
         @task.goal = @goal 
         if @task.save 
-
             redirect_to goal_path(@goal)
         else 
             @note = Note.new
