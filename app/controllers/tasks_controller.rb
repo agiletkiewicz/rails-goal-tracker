@@ -1,6 +1,8 @@
 class TasksController < ApplicationController
 
     before_action :require_login
+    before_action :correct_user?
+    skip_before_action :correct_user?, only: [:index]
 
     def create 
         @goal = Goal.find_by(id: params[:goal_id])
@@ -54,6 +56,11 @@ class TasksController < ApplicationController
 
     def task_params 
         params.require(:task).permit(:description, :by_when, :goal_id, :complete, :completed_date)
+    end
+
+    def correct_user?
+        @task = Task.find_by(id: params[:id])
+        return head(:forbidden) unless current_user.tasks.include?(@task)
     end
 
 end
