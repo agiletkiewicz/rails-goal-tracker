@@ -1,6 +1,9 @@
 class GoalsController < ApplicationController
 
     before_action :require_login
+    before_action :correct_user?
+    skip_before_action :correct_user?, only: [:index]
+
 
     def index
         @goals = current_user.goals
@@ -27,19 +30,14 @@ class GoalsController < ApplicationController
 
     def show 
         @goal = Goal.find_by(id: params[:id])
-        if @goal.user_id == current_user.id
-            @task= Task.new
-            @note = Note.new
-        else
-            redirect_to '/'
-        end
+        @task= Task.new
+        @note = Note.new
     end
 
     def edit 
         @goal = Goal.find_by(id: params[:id])
         @user = current_user
 
-        redirect_to '/' unless @goal.user_id == current_user.id
     end
 
     def update

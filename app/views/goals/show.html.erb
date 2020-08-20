@@ -37,8 +37,7 @@
         <h3>Add a new task:</h3>
         <%= form_for([@goal, @task]) do |f| %>
             <%= f.text_field :description, placeholder: "Task description" %>
-            <%= f.date_field :by_when %>
-            <br>
+            <%= f.date_field :by_when %><br>
             <%= f.submit "add", class: "add-button" %><br>
         <% end %>
     </div>

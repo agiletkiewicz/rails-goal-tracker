@@ -1,14 +1,15 @@
 <div class="standalone-form">
 
-<div id="error_explanation"> 
-    <% flash.each do |type, msg| %>
-        <div>
-            <%= msg %>
-        </div>
-    <% end %>
-</div>
+    <div id="error_explanation"> 
+        <% flash.each do |type, msg| %>
+            <div>
+                <%= msg %>
+            </div>
+        <% end %>
+    </div>
 
-<h1> Login to see your goals! </h1>
+    <h1> Login to see your goals! </h1>
+    
     <%= form_for @user, url: signin_path, method: :post do |f| %>
 
         <label>Username:</label><br>    
