@@ -28,7 +28,7 @@
     
     <div class="add-form goal-index add-goal-component">
         <h2> Add a new goal: </h2>
-        <%= render partial: 'shared/error', locals: {object: @goal} %>
+        <%= render partial: 'shared/flash' %>
         <%= render 'form' %>
     </div>
 
@@ -45,6 +45,10 @@
 <h1 class="goal-index"> Congratulations! These are your completed goals: </h1>
 
 <div class="goal-index-container">
+
+    <div class="goal-index-description heading">Goal:</div>
+    <div class="goal-index-result heading">Key Result:</div>
+    <div class="goal-index-date heading">Deadline:</div>
 
     <% @closed_goals.each do |goal| %>
         <div class="goal-index-description"> 

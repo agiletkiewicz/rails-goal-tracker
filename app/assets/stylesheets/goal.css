@@ -309,6 +309,13 @@
         padding-left: 10px;
     }
 
+    .goal-index-result {
+        grid-column: 5 / 10;
+        padding-top: 15px;
+        text-align: left;
+        padding-left: 10px;
+    }
+
     h1.goal-index {
         text-align: center;
         display: block;

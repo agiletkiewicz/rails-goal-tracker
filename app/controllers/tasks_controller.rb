@@ -6,8 +6,7 @@ class TasksController < ApplicationController
 
     def create 
         @goal = Goal.find_by(id: params[:goal_id])
-        @task = Task.new(task_params)
-        @task.goal = @goal 
+        @task = @goal.tasks.build(task_params)
         if @task.save 
             redirect_to goal_path(@goal)
         else 

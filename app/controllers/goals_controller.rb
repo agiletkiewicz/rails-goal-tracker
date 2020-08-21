@@ -2,7 +2,7 @@ class GoalsController < ApplicationController
 
     before_action :require_login
     before_action :correct_user?
-    skip_before_action :correct_user?, only: [:index]
+    skip_before_action :correct_user?, only: [:index, :new, :create]
 
 
     def index
@@ -24,8 +24,8 @@ class GoalsController < ApplicationController
         if @goal.save
             redirect_to goal_path(@goal)
         else 
-            @goals = current_user.goals
-            render :index 
+            flash[:alert] = "Can't leave a field blank"
+            redirect_to goals_path
         end
     end
 
