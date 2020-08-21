@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_21_164244) do
+ActiveRecord::Schema.define(version: 2020_08_21_181858) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2020_08_21_164244) do
     t.text "description"
     t.text "key_result"
     t.datetime "completed_date"
-    t.boolean "complete"
+    t.boolean "complete", default: false
     t.datetime "by_when"
     t.integer "category_id"
   end
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2020_08_21_164244) do
 
   create_table "tasks", force: :cascade do |t|
     t.string "description"
-    t.boolean "complete"
+    t.boolean "complete", default: false
     t.datetime "by_when"
     t.integer "goal_id"
     t.datetime "completed_date"
