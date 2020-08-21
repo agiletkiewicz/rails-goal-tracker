@@ -12,6 +12,7 @@ class TasksController < ApplicationController
         else 
             @open_tasks = @goal.ordered_open_tasks
             @closed_tasks = @goal.ordered_closed_tasks
+            @notes = @goal.notes
             render 'goals/show'
         end
     end

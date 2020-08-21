@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :new, :create]
 
   resources :goals do 
-    resources :tasks, only: [:edit, :update, :index, :create]
+    resources :tasks, only: [:index, :create]
     resources :notes, only: [:new, :create]
   end
 
