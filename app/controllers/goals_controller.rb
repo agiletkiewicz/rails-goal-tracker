@@ -19,13 +19,13 @@ class GoalsController < ApplicationController
 
     def create
         @user = current_user
-        @goal = Goal.new(goal_params)
-        @goal.user = @user 
+        @goal = @user.goals.build(goal_params)
         if @goal.save
             redirect_to goal_path(@goal)
         else 
-            flash[:alert] = "Can't leave a field blank"
-            redirect_to goals_path
+            @open_goals = @user.ordered_open_goals
+            @closed_goals = @user.goals.completed
+            render "goals/index"
         end
     end
 

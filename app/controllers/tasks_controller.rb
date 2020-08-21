@@ -10,8 +10,9 @@ class TasksController < ApplicationController
         if @task.save 
             redirect_to goal_path(@goal)
         else 
-            flash[:alert] = "Can't leave a field blank"
-            redirect_to goal_path(@goal)
+            @open_tasks = @goal.ordered_open_tasks
+            @closed_tasks = @goal.ordered_closed_tasks
+            render 'goals/show'
         end
     end
 

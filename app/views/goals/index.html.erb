@@ -28,7 +28,7 @@
     
     <div class="add-form goal-index add-goal-component">
         <h2> Add a new goal: </h2>
-        <%= render partial: 'shared/flash' %>
+        <%= render partial: 'shared/error', locals: {object: @goal} %>
         <%= render 'form' %>
     </div>
 

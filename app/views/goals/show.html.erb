@@ -32,7 +32,7 @@
 
     <div class="add-task-form">
 
-        <%= render partial: 'shared/flash' %>
+        <%= render partial: 'shared/error', locals: {object: @task} %>
 
         <h3>Add a new task:</h3>
         <%= form_for([@goal, @task]) do |f| %>
