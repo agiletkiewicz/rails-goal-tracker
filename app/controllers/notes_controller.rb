@@ -10,7 +10,6 @@ class NotesController < ApplicationController
         if @note.save 
             redirect_to goal_path(@goal)
         else 
-            @task = Task.new
             render 'new'
         end
     end

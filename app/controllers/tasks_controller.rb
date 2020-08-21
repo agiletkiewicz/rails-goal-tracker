@@ -2,7 +2,7 @@ class TasksController < ApplicationController
 
     before_action :require_login
     before_action :correct_user?
-    skip_before_action :correct_user?, only: [:index]
+    skip_before_action :correct_user?, only: [:index, :new, :create]
 
     def create 
         @goal = Goal.find_by(id: params[:goal_id])
@@ -11,8 +11,8 @@ class TasksController < ApplicationController
         if @task.save 
             redirect_to goal_path(@goal)
         else 
-            @note = Note.new
-            render 'goals/show'
+            flash[:alert] = "Can't leave a field blank"
+            redirect_to goal_path(@goal)
         end
     end
 

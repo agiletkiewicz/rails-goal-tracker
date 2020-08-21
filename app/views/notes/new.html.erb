@@ -4,7 +4,7 @@
     <h2>Goal: <%= @goal.description %></h2>
     <h3>Add a new note:</h3>
     <%= form_for([@goal, @note]) do |f| %>
-            <%= f.text_area :content, placeholder: "Record a note about this goal", :cols => 50, :rows => 8 %>
+        <%= f.text_area :content, placeholder: "Record a note about this goal", :cols => 50, :rows => 8 %>
         <br>
         <%= f.submit "add", class: "add-button" %><br>
     <% end %>
