@@ -22,6 +22,7 @@
                     <%= form_for task do |f| %>
                         <%= f.hidden_field :target, value: "home" %>
                         <%= f.hidden_field :complete, value: true %>
+                        <%= f.hidden_field :completed_date, value: Time.current %>
                         <%= f.submit value: " " %>
                     <% end %>
                 </div>

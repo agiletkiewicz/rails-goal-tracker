@@ -106,16 +106,18 @@
 
         <h2>Completed Tasks</h2>
         <hr class="solid">
-
-        <% @closed_tasks.each do |task| %>
-            <div class="check-icon"></div>
-            <div class="completed-description">
-                <%= link_to task.description, edit_task_path(task) %>
-            </div>
-            <div class="completed-date">
-                <%= day_completed(task) %>
-            </div>
-        <% end %>
+        
+        <% if !@closed_tasks.empty? %>
+            <% @closed_tasks.each do |task| %>
+                <div class="check-icon"></div>
+                <div class="completed-description">
+                    <%= link_to task.description, edit_task_path(task) %>
+                </div>
+                <div class="completed-date">
+                    <%= day_completed(task) %>
+                </div>
+            <% end %>
+        <% end %>    
     </div>
 <% end %>
 
