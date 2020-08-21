@@ -37,7 +37,7 @@ class TasksController < ApplicationController
     def index
         if params[:goal_id]
             @goal = Goal.find(params[:goal_id])
-            @tasks = @goal.tasks
+            @tasks = @goal.ordered_open_tasks
         else 
             @tasks = current_user.ordered_open_tasks
         end
