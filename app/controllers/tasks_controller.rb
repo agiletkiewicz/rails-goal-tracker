@@ -39,6 +39,7 @@ class TasksController < ApplicationController
         if params[:goal_id]
             @goal = Goal.find(params[:goal_id])
             @tasks = @goal.ordered_open_tasks
+            return head(:forbidden) unless @goal.user_id == current_user.id
         else 
             @tasks = current_user.ordered_open_tasks
         end
