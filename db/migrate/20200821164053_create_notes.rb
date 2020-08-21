@@ -3,8 +3,6 @@ class CreateNotes < ActiveRecord::Migration[6.0]
     create_table :notes do |t|
       t.integer :goal_id
       t.text :content
-
-      t.timestamps
     end
   end
 end

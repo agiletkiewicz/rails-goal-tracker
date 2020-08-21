@@ -5,8 +5,7 @@ class CreateTasks < ActiveRecord::Migration[6.0]
       t.boolean :complete
       t.datetime :by_when
       t.integer :goal_id
-
-      t.timestamps
+      t.datetime :completed_date
     end
   end
 end

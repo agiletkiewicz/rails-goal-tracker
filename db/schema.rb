@@ -10,12 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_18_224834) do
+ActiveRecord::Schema.define(version: 2020_08_21_164244) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "goals", force: :cascade do |t|
@@ -23,26 +21,20 @@ ActiveRecord::Schema.define(version: 2020_08_18_224834) do
     t.text "description"
     t.text "key_result"
     t.datetime "completed_date"
-    t.boolean "complete", default: false
+    t.boolean "complete"
     t.datetime "by_when"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
     t.integer "category_id"
   end
 
   create_table "notes", force: :cascade do |t|
     t.integer "goal_id"
     t.text "content"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "tasks", force: :cascade do |t|
     t.string "description"
-    t.boolean "complete", default: false
+    t.boolean "complete"
     t.datetime "by_when"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
     t.integer "goal_id"
     t.datetime "completed_date"
   end
@@ -51,8 +43,6 @@ ActiveRecord::Schema.define(version: 2020_08_18_224834) do
     t.string "name"
     t.string "username"
     t.string "password_digest"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
     t.string "uid"
   end
 
