@@ -1,6 +1,6 @@
 # Rails Goal Tracker App
 
-A goal tracking app that allows a users to create and track a tangible plan for achieving each of their personal goals.
+A goal tracking app that allows a user to create and track a tangible plan for achieving each of their personal goals.
 
 A Rails-powered web application created as part of the [Flatiron School's Online Web Developer program](https://flatironschool.com/).
 
