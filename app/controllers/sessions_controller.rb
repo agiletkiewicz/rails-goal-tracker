@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
             u.name = auth['info']['name']
             u.username = auth['info']['email']
             u.uid = auth['uid']
-            u.password = 'Temporary'
+            u.password = SecureRandom.urlsafe_base64
         end
         session[:user_id] = @user.id
         redirect_to '/'
