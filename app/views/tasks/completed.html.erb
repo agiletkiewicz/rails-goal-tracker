@@ -1,0 +1,19 @@
+<br>
+<div class="task-container">
+
+<h2>All completed tasks</h2>
+
+<hr class="solid">
+
+<% @tasks.each do |task| %>
+    <div class="task-description">
+        <%= task.description %>
+    </div>
+    <div class="task-date">
+        <%= day_completed(task) %> 
+    </div>
+    <div class="task-delete">
+        <%= button_to "x", task_path(task), :method => :delete, class: "delete" %>
+    </div>
+<% end %>
+</div>

@@ -2,7 +2,7 @@ class TasksController < ApplicationController
 
     before_action :require_login
     before_action :correct_user?
-    skip_before_action :correct_user?, only: [:index, :new, :create]
+    skip_before_action :correct_user?, only: [:index, :new, :create, :completed]
 
     def create 
         @goal = Goal.find_by(id: params[:goal_id])
@@ -50,6 +50,10 @@ class TasksController < ApplicationController
         @task.destroy
 
         redirect_to goal_path(@task.goal)
+    end
+
+    def completed
+        @tasks = current_user.tasks.completed    
     end
 
     private
