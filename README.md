@@ -40,6 +40,7 @@ Install:
 * cd GoalTracker
 * run bundle install
 * run rake db:migrate
+* run rake db:seed
 * run rails s and open in your favorite browser
 
 
