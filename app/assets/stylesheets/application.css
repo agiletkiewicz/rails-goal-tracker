@@ -15,10 +15,10 @@
  */
 
 
-    /* Universal */  
-
+    /* Universal */   
+    
     html {
-        background-image: url("https://images.pexels.com/photos/733857/pexels-photo-733857.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+        background-image: url("background2.png");
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
@@ -208,6 +208,7 @@
         width: 350px;
         border: solid 1px black;
         background-color: white;
+        margin-top: 15px;
     }
 
     .add-button {
