@@ -15,8 +15,8 @@
  */
 
 
-    /* Universal */
-    
+    /* Universal */  
+
     html {
         background-image: url("https://images.pexels.com/photos/733857/pexels-photo-733857.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
         background-repeat: no-repeat;
@@ -197,6 +197,8 @@
         text-align: center;
         align-content: center;
         width: 350px;
+        border: solid 1px black;
+        background-color: white;
     }
 
     .add-note-form {
@@ -212,6 +214,7 @@
         background-color: transparent;
         border: none;
         font-weight: bold;
+        font-size: 18px;
     }
 
     .complete-button {
