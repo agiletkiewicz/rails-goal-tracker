@@ -8,7 +8,7 @@ class Goal < ApplicationRecord
     scope :completed, -> { where(complete: true) }
     scope :not_completed, -> { where(complete: false) }
 
-    validates_date :by_when, :on_or_after => lambda { Date.current }  
+    validates_date :by_when, on: :create, :on_or_after => lambda { Date.current }  
     validates :description, :key_result, :category_id, :by_when, presence: true
 
 

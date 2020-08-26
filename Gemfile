@@ -3,13 +3,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.1'
 
-gem 'pg'
 gem 'validates_timeliness', '~> 4.0'
 gem 'thin'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
-gem 'bootstrap', '~> 4.5.2'
 gem 'jquery-rails'
 # gem 'bcrypt'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
