@@ -3,9 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.1'
 
-gem 'sqlite3', group: :development
-gem 'pg', group: :production
-gem 'activerecord-postgresql-adapter', group: :production
+gem 'pg', '>= 0.18', '< 2.0'
 gem 'validates_timeliness', '~> 4.0'
 gem 'thin'
 gem 'omniauth'
