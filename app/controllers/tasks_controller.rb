@@ -2,7 +2,7 @@ class TasksController < ApplicationController
 
     before_action :require_login
     before_action :correct_user?
-    skip_before_action :correct_user?, only: [:index, :new, :create, :completed]
+    skip_before_action :correct_user?, only: [:index, :new, :create, :completed, :search]
 
     def create 
         @goal = Goal.find_by(id: params[:goal_id])
@@ -44,6 +44,11 @@ class TasksController < ApplicationController
         else 
             @tasks = current_user.ordered_open_tasks
         end
+    end
+
+    def search 
+        @tasks = current_user.tasks.search(params[:q])
+        render :index
     end
 
     def destroy

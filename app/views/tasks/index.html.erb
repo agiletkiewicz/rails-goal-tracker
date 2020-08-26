@@ -1,6 +1,12 @@
 <br>
 <div class="task-container">
 
+    <%= form_tag("/search", method: "get") do %>
+        <%= label_tag(:q, "Search for:") %>
+        <%= text_field_tag(:q) %>
+        <%= submit_tag("Search") %>
+    <% end %>
+
     <h2>All open tasks</h2>
     <% if @goal %>
         <h2>for goal: <%= @goal.description %></h2>

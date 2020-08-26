@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :tasks, only: [:index, :edit, :update, :destroy]
   resources :notes, only: [:destroy]
 
-
+  get '/search' => 'tasks#search'
   root 'users#show'
   get '/logout' => 'sessions#destroy'
   get '/signin' => 'sessions#new'
@@ -19,3 +19,4 @@ Rails.application.routes.draw do
   get '/completed_tasks' => 'tasks#completed'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
+ 
