@@ -434,7 +434,7 @@
     }
 
 
-@media screen and (max-width: 600px) {
+@media only screen and (max-width: 600px) {
 
     #logo img {
         width: 30%;
@@ -472,10 +472,25 @@
 
     .task-container.user-page.snapshot {
         width: 90%;
-      }
+    }
 
-      .goal-container.user-page {
+    .goal-container.user-page {
         width: 90%;
-      }
+    }
+
+    .standalone-form {
+        width: 90%;
+        left: 5%;
+    }
+
+    .heading {
+        text-decoration: underline;
+        padding-bottom: 15px;
+        font-size: medium;
+    }
+
+    .navbar a {
+        font-size: small;
+    }
 
 }
