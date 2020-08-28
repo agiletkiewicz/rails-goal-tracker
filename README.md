@@ -34,7 +34,9 @@ Check off tasks and add notes to goals:
 
 ### Get Started
 
-Install:
+Visit the live site: https://rails-goal-tracker.herokuapp.com
+
+Alternatively, install:
 * fork this repository
 * git clone to your local directory
 * cd GoalTracker
