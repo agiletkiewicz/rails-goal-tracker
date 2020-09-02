@@ -8,7 +8,9 @@ class SessionsController < ApplicationController
 
     def new
         @user = User.new
-        set_meta_tags image_src: "https://images.pexels.com/photos/733857/pexels-photo-733857.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+        set_meta_tags title: 'Goal Tracker',
+                      description: 'A goal tracking app that allows a user to create and track a tangible plan for achieving each of their personal goals.',
+                      image_src: "https://images.pexels.com/photos/733857/pexels-photo-733857.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
         render layout: "welcome"
     end
 
